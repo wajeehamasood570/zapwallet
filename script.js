@@ -56,7 +56,6 @@
 //     });
 // });
 
-
 document.addEventListener('DOMContentLoaded', function() {
     const dropdowns = document.querySelectorAll('.arr-down');
 
@@ -68,21 +67,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Toggle the dropdown content
             dropdownContent.classList.toggle('show');
-            
+
+            // If the dropdown is now shown
             if (dropdownContent.classList.contains('show')) {
                 card.classList.add('expanded');
 
+                // Reset tabs to ensure no tab is active by default
+                resetTabs(dropdownContent); // Ensure no tabs are active initially
+                
+                // Open the corresponding tab based on the clicked dropdown
+                const tabName = this.getAttribute('data-tab'); // Get the tab name from data attribute
+                openTab(event, tabName); // Open the corresponding tab content
+
                 // Check if the dropdown goes above the screen
                 const dropdownRect = dropdownContent.getBoundingClientRect();
-                const cardRect = card.getBoundingClientRect();
-                const windowHeight = window.innerHeight;
-
-                // If dropdown goes out of view above, scroll the card into view
                 if (dropdownRect.top < 0) {
                     card.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }
             } else {
                 card.classList.remove('expanded');
+                resetTabs(dropdownContent); // Reset tabs when dropdown is closed
             }
         });
     });
@@ -101,10 +105,53 @@ document.addEventListener('DOMContentLoaded', function() {
             if (!content.contains(event.target) && content.classList.contains('show')) {
                 content.classList.remove('show');
                 content.closest('.srch-card').classList.remove('expanded');
+                resetTabs(content); // Reset tabs when closed
             }
         });
     });
 });
+
+// Function to close the dropdown
+function closeDropdown(element) {
+    const dropdownContent = element.closest('.dropdown-content');
+    if (dropdownContent) {
+        dropdownContent.classList.remove('show');
+        dropdownContent.closest('.srch-card').classList.remove('expanded');
+        resetTabs(dropdownContent); // Reset tabs when closed
+    }
+}
+
+// Function to open corresponding tab content
+function openTab(evt, tabName) {
+    // Hide all tab contents
+    var tabcontent = document.getElementsByClassName("tabcontent");
+    for (var i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+
+    // Remove active class from all tab buttons
+    var tablinks = document.getElementsByClassName("tablinks");
+    for (var i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+    }
+
+    // Show the selected tab content
+    document.getElementById(tabName).style.display = "block";
+
+    // Set the clicked tab as active
+    if (evt) {
+        evt.currentTarget.classList.add("active");
+    }
+}
+
+// Function to reset all tabs
+function resetTabs(dropdownContent) {
+    const tablinks = dropdownContent.querySelectorAll(".tablinks");
+    tablinks.forEach(tab => tab.classList.remove("active")); // Remove active class
+    const tabcontent = dropdownContent.querySelectorAll(".tabcontent");
+    tabcontent.forEach(content => content.style.display = "none"); // Hide all contents
+}
+
 
 
 

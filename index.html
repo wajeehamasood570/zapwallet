@@ -678,40 +678,13 @@
                     </div>
                     <div>
                       9+ Pickups
-                      <div class="arr-down" onclick="toggleDropdown(event)">
+                      <div class="arr-down" onclick="toggleDropdown(event)" data-tab="Pickup">
                         <span></span>
                       </div>
                     </div>
                   </div>
 
-                  <!-- <div class="srch-card">
-                  <div class="pick-blk" id="pickups" onclick="toggleSeatChart()">
-					<div title="Koyembedu">Koyembedu</div>
-					<div>9+ Pickups</div>
-					<div class="arr-down" onclick="toggleDropdown(event)">
-						<span></span>
-					</div>
-				</div>
-
-                    <!-- Seat Chart Section -->
-                  <!-- <div class="seatchart" id="seatChart">
-                      <button class="close-btn" onclick="closeSeatChart()">
-                        X
-                      </button>
-                      <!-- Close button -->
-                  <!-- <div class="sc-nav">
-                        <span id="Chartstep1"><i></i>Seat chart</span>
-                        <span class="active" id="Chartstep2"
-                          ><i></i>Pickup</span
-                        >
-                        <span id="Chartstep3"><i></i>Drop-off</span>
-                        <span id="Chartstep4"><i></i>Passenger info</span>
-                        <span id="Chartstep5"><i></i>Your info</span>
-                        <span id="Chartstep7">Policies</span>
-                      </div>
-                      Seat chart content
-                    </div>
-                  </div> -->
+                 
 
                   <div
                     class="dur-blk"
@@ -724,7 +697,7 @@
                     <div></div>
                     <div class="policy-cls">
                       Policies
-                      <div class="arr-down" onclick="toggleDropdown(event)">
+                      <div class="arr-down" onclick="toggleDropdown(event)" data-tab="Policies">
                         <span></span>
                       </div>
                     </div>
@@ -738,7 +711,7 @@
                     </div>
                     <div>
                       6+ Drop-off
-                      <div class="arr-down" onclick="toggleDropdown(event)">
+                      <div class="arr-down" onclick="toggleDropdown(event)" data-tab="DropOff">
                         <span></span>
                       </div>
                     </div>
@@ -799,52 +772,113 @@
                 <div id="Policies" class="tabcontent">Policies Content...</div>
               </div> -->
 
-              <div class="dropdown-content">
+              <div class="dropdown-content" >
                 <!-- Dropdown content here (same for each card) -->
+                <!-- Close button -->
+                <span class="close-btn" onclick="closeDropdown(this)">×</span>
+
+                <!-- Tab Buttons -->
                 <div class="tab">
                   <button
                     class="tablinks"
+                    data-tab="SeatChart"
                     onclick="openTab(event, 'SeatChart')"
                   >
                     Seat Chart
                   </button>
-                  <button class="tablinks" onclick="openTab(event, 'Pickup')">
+                  <button
+                    class="tablinks"
+                    data-tab="Pickup"
+                    onclick="openTab(event, 'Pickup')"
+                  >
                     Pickup
                   </button>
-                  <button class="tablinks" onclick="openTab(event, 'DropOff')">
+                  <button
+                    class="tablinks"
+                    data-tab="DropOff"
+                    onclick="openTab(event, 'DropOff')"
+                  >
                     Drop-off
                   </button>
                   <button
                     class="tablinks"
+                    data-tab="PassengerInfo"
                     onclick="openTab(event, 'PassengerInfo')"
                   >
                     Passenger Info
                   </button>
-                  <button class="tablinks" onclick="openTab(event, 'YourInfo')">
+                  <button
+                    class="tablinks"
+                    data-tab="YourInfo"
+                    onclick="openTab(event, 'YourInfo')"
+                  >
                     Your Info
                   </button>
                   <button
                     class="tablinks"
+                    data-tab="TrustScore"
                     onclick="openTab(event, 'TrustScore')"
                   >
                     Trust Score
                   </button>
-                  <button class="tablinks" onclick="openTab(event, 'Policies')">
+                  <button
+                    class="tablinks"
+                    data-tab="Policies"
+                    onclick="openTab(event, 'Policies')"
+                  >
                     Policies
                   </button>
                 </div>
+
+                <!-- Tab Content -->
                 <div id="SeatChart" class="tabcontent">
                   Seat Chart Content...
                 </div>
-                <div id="Pickup" class="tabcontent">Pickup Content...</div>
+
+                <div id="Pickup" class="tabcontent">
+                  <div class="pickup-section">
+                    <div class="pickup-header">
+                      <h2>Pickup Location</h2>
+                    </div>
+
+                    <div class="pickup-content">
+                      <!-- Location Input Field -->
+                      <div class="location-input">
+                        <span class="icon">&#x1F4CD;</span>
+                        <!-- Location Pin Icon -->
+                        <button class="location-btn">
+                          Select Pickup Location
+                        </button>
+                      </div>
+
+                      <!-- Time and Date Field -->
+                      <div class="datetime-section">
+                        <button class="time-btn">10:00 AM</button>
+                        <button class="date-btn">22 Oct, 2024</button>
+                      </div>
+
+                      <!-- Add Pickup Point Button -->
+                      <div class="add-pickup">
+                        <button class="add-pickup-btn">
+                          + Add Pickup Point
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <div id="DropOff" class="tabcontent">Drop-off Content...</div>
+
                 <div id="PassengerInfo" class="tabcontent">
                   Passenger Info Content...
                 </div>
+
                 <div id="YourInfo" class="tabcontent">Your Info Content...</div>
+
                 <div id="TrustScore" class="tabcontent">
                   Trust Score Content...
                 </div>
+
                 <div id="Policies" class="tabcontent">Policies Content...</div>
               </div>
             </div>

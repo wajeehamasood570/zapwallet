@@ -5810,3 +5810,109 @@ input[type="number"]::-webkit-outer-spin-button {
         margin-top: 500px; /* Extra space for dropdown above on mobile */
     }
 }
+
+
+/* Pickup Section Container */
+.pickup-section {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 20px;
+    margin-top: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+/* Pickup Section Header */
+.pickup-header h2 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Pickup Content (Flex) */
+.pickup-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Location Input */
+.location-input {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.location-input .icon {
+    font-size: 20px;
+    color: #4CAF50; /* Pin Icon Color */
+}
+
+.location-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    flex-grow: 1;
+    text-align: left;
+}
+
+/* Time and Date Section */
+.datetime-section {
+    display: flex;
+    gap: 10px;
+}
+
+.time-btn, .date-btn {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 10px;
+    flex: 1;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+}
+
+/* Add Pickup Button */
+.add-pickup {
+    text-align: center;
+}
+
+.add-pickup-btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Hover Effects */
+.location-btn:hover, .time-btn:hover, .date-btn:hover, .add-pickup-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* Make Responsive */
+@media (max-width: 768px) {
+    .pickup-section {
+        padding: 15px;
+    }
+
+    .pickup-header h2 {
+        font-size: 16px;
+    }
+
+    .location-btn, .time-btn, .date-btn, .add-pickup-btn {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .datetime-section {
+        flex-direction: column;
+    }
+}
