@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.navbar-brand i {
+    color: yellow;
+}
+
+.bus-row {
+    border: 1px solid #e0e0e0;
+    margin-bottom: 10px;
+    padding: 15px 0;
+    background-color: white;
+}
+
+.amenities i {
+    margin-right: 10px;
+}
+
+.duration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background-color: #007bff;
+    border-radius: 50%;
+}
+
+.line {
+    flex-grow: 1;
+    height: 2px;
+    background-color: #007bff;
+    margin: 0 5px;
+}
+
+.dropdown-toggle::after {
+    display: none;
+}
+
+.btn-link {
+    color: #007bff;
+    padding: 0;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    text-decoration: underline;
+}
