@@ -24,37 +24,88 @@
 //     });
 // });
 
+// document.addEventListener('DOMContentLoaded', function() {
+//     const dropdowns = document.querySelectorAll('.arr-down');
+
+//     dropdowns.forEach(arrow => {
+//         arrow.addEventListener('click', function(event) {
+//             event.stopPropagation(); // Prevent event bubbling
+//             const dropdownContent = this.closest('.srch-card').querySelector('.dropdown-content');
+//             const card = this.closest('.srch-card');
+//             dropdownContent.classList.toggle('show'); // Toggle class
+            
+//             // Add or remove the expanded class
+//             if (dropdownContent.classList.contains('show')) {
+//                 card.classList.add('expanded');
+//             } else {
+//                 card.classList.remove('expanded');
+//             }
+//         });
+//     });
+
+//     // Close the dropdown when clicking outside
+//     window.addEventListener('click', function(event) {
+//         const dropdownContents = document.querySelectorAll('.dropdown-content');
+//         dropdownContents.forEach(content => {
+//             if (content.classList.contains('show')) {
+//                 content.classList.remove('show');
+//                 // Also remove expanded class
+//                 content.closest('.srch-card').classList.remove('expanded');
+//             }
+//         });
+//     });
+// });
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const dropdowns = document.querySelectorAll('.arr-down');
 
     dropdowns.forEach(arrow => {
         arrow.addEventListener('click', function(event) {
-            event.stopPropagation(); // Prevent event bubbling
-            const dropdownContent = this.closest('.srch-card').querySelector('.dropdown-content');
+            event.stopPropagation();
             const card = this.closest('.srch-card');
-            dropdownContent.classList.toggle('show'); // Toggle class
+            const dropdownContent = card.querySelector('.dropdown-content');
+
+            // Toggle the dropdown content
+            dropdownContent.classList.toggle('show');
             
-            // Add or remove the expanded class
             if (dropdownContent.classList.contains('show')) {
                 card.classList.add('expanded');
+
+                // Check if the dropdown goes above the screen
+                const dropdownRect = dropdownContent.getBoundingClientRect();
+                const cardRect = card.getBoundingClientRect();
+                const windowHeight = window.innerHeight;
+
+                // If dropdown goes out of view above, scroll the card into view
+                if (dropdownRect.top < 0) {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
             } else {
                 card.classList.remove('expanded');
             }
         });
     });
 
-    // Close the dropdown when clicking outside
+    // Prevent closing the dropdown when clicking inside it
+    document.querySelectorAll('.dropdown-content').forEach(function(dropdown) {
+        dropdown.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+    });
+
+    // Close dropdown if clicked outside
     window.addEventListener('click', function(event) {
         const dropdownContents = document.querySelectorAll('.dropdown-content');
-        dropdownContents.forEach(content => {
-            if (content.classList.contains('show')) {
+        dropdownContents.forEach(function(content) {
+            if (!content.contains(event.target) && content.classList.contains('show')) {
                 content.classList.remove('show');
-                // Also remove expanded class
                 content.closest('.srch-card').classList.remove('expanded');
             }
         });
     });
 });
+
 
 
 
