@@ -5968,3 +5968,413 @@ input[type="radio"]:checked::before {
 .dropdown-content.show .tabcontent {
   display: block; /* Show only when 'show' class is added */
 }
+
+
+
+.policy-content {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+  padding: 20px;
+}
+
+.policy-options
+{
+  /* flex-basis: 40%;  Ensure equal width */
+  width: 40%;
+}
+
+/* Sidebar styles */
+.policy-sidebar {
+  background-color: #f0f4f7;
+  padding: 15px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.policy-sidebar ul {
+  list-style: none;
+}
+
+.policy-sidebar li {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #e7f0f7;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.policy-sidebar li.active {
+  background-color: #b7d9f7;
+  font-weight: bold;
+}
+
+/* Policy radio buttons */
+.policy-options {
+  display: flex;
+  flex-direction: column;
+}
+
+.policy-radio {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.policy-radio input {
+  margin-right: 30px;
+}
+
+/* Policy table */
+.policy-table-container {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.policy-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.policy-table th, .policy-table td {
+  border: 1px solid #e0e0e0;
+  padding: 12px;
+  text-align: left;
+}
+
+.policy-table th {
+  background-color: #f0f4f7;
+  font-weight: bold;
+}
+
+.policy-table td {
+  background-color: #fff;
+}
+
+/* Select Seats button */
+.select-seat-container {
+  display: flex;
+  /* justify-content: flex-end; */
+  margin-top: 10px;
+  flex-direction: column;
+}
+
+.select-seat-btn {
+  background-color: #ff5a00;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* Additional services */
+.policy-services {
+  background-color: #fff9e6;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.policy-services h4 {
+  margin-bottom: 10px;
+}
+
+.policy-services p {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .policy-content {
+    flex-direction: column;
+  }
+
+  .select-seat-btn {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+
+  .policy-main {
+    gap: 10px;
+  }
+}
+
+
+
+.seat-chart-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  gap: 20px;
+}
+
+.price-filter {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.price-filter h4 {
+  margin-bottom: 10px;
+}
+
+.price-filter input[type="range"] {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.price-filter p {
+  font-size: 14px;
+  color: #666;
+}
+
+.seat-chart-container {
+  flex: 3;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Seat Layout */
+.seat-layout h4 {
+  margin-bottom: 15px;
+}
+
+.seat-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 seats per row */
+  gap: 5px;
+  margin-bottom: 20px;
+}
+
+.seat {
+  padding: 8px;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  color: white;
+  font-size: 10px; /* Smaller seat size */
+}
+
+.seat.normal {
+  background-color: #66bb6a;
+}
+
+.seat.female {
+  background-color: #ff8a80;
+}
+
+.seat.male {
+  background-color: #42a5f5;
+}
+
+.seat.sold {
+  background-color: #cfd8dc;
+  cursor: not-allowed;
+}
+
+.legend {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 10px;
+}
+
+.seat-legend {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 3px;
+  margin-right: 5px;
+}
+
+.seat-legend.normal {
+  background-color: #66bb6a;
+}
+
+.seat-legend.female {
+  background-color: #ff8a80;
+}
+
+.seat-legend.male {
+  background-color: #42a5f5;
+}
+
+.seat-legend.sold {
+  background-color: #cfd8dc;
+}
+
+/* Fare Summary */
+.fare-summary {
+  flex: 2;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.fare-summary h4 {
+  margin-bottom: 10px;
+}
+
+.fare-details p {
+  margin: 10px 0;
+}
+
+.select-seat-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff5a00;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.select-seat-btn:hover {
+  background-color: #e64a19;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .seat-chart-wrapper {
+    flex-direction: column;
+  }
+
+  .seat-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 seats per row on mobile */
+  }
+
+  .price-filter {
+    order: 1;
+  }
+
+  .seat-chart-container {
+    order: 2;
+  }
+
+  .fare-summary {
+    order: 3;
+  }
+}
+
+
+
+
+
+.your-info-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+  width: 100%;
+  /* max-width: 900px; */
+  margin: 20px auto;
+  display: flex;
+  flex-direction: row;
+  gap:5%;
+}
+
+.input-section {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.mobile-number-container {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.country-code {
+  background-color: #e1f5fe;
+  padding: 10px;
+  border-right: 1px solid #ccc;
+  font-weight: bold;
+}
+
+.mobile-input,
+.email-input {
+  padding: 10px;
+  border: none;
+  flex: 1;
+}
+
+.email-input {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.contact-info-btn {
+  background-color: #ff7043;
+  color: white;
+  padding: 15px;
+  width: 70%;
+  border: none;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.contact-info-btn:hover {
+  background-color: #e64a19;
+}
+
+.note-section {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.note-icon {
+  font-size: 30px;
+  color: orange;
+  margin-right: 10px;
+}
+
+.note-text {
+  color: #666;
+}
+
+.note-text strong {
+  color: #ff7043;
+}
+
+.note-text ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.communication-info {
+  color: #666;
+  /* padding-top: 20px; */
+  /* border-top: 1px solid #ccc; */
+  display: flex;
+  /* justify-content: flex-end; */
+  flex-direction: column;
+}
+
+.communication-info p {
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .input-section {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .contact-info-btn {
+    padding: 12px;
+  }
+}
