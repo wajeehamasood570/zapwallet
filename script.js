@@ -24,37 +24,37 @@
 //     });
 // });
 
-// document.addEventListener('DOMContentLoaded', function() {
-//     const dropdowns = document.querySelectorAll('.arr-down');
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdowns = document.querySelectorAll('.arr-down');
 
-//     dropdowns.forEach(arrow => {
-//         arrow.addEventListener('click', function(event) {
-//             event.stopPropagation(); // Prevent event bubbling
-//             const dropdownContent = this.closest('.srch-card').querySelector('.dropdown-content');
-//             const card = this.closest('.srch-card');
-//             dropdownContent.classList.toggle('show'); // Toggle class
+    dropdowns.forEach(arrow => {
+        arrow.addEventListener('click', function(event) {
+            event.stopPropagation(); // Prevent event bubbling
+            const dropdownContent = this.closest('.srch-card').querySelector('.dropdown-content');
+            const card = this.closest('.srch-card');
+            dropdownContent.classList.toggle('show'); // Toggle class
             
-//             // Add or remove the expanded class
-//             if (dropdownContent.classList.contains('show')) {
-//                 card.classList.add('expanded');
-//             } else {
-//                 card.classList.remove('expanded');
-//             }
-//         });
-//     });
+            // Add or remove the expanded class
+            if (dropdownContent.classList.contains('show')) {
+                card.classList.add('expanded');
+            } else {
+                card.classList.remove('expanded');
+            }
+        });
+    });
 
-//     // Close the dropdown when clicking outside
-//     window.addEventListener('click', function(event) {
-//         const dropdownContents = document.querySelectorAll('.dropdown-content');
-//         dropdownContents.forEach(content => {
-//             if (content.classList.contains('show')) {
-//                 content.classList.remove('show');
-//                 // Also remove expanded class
-//                 content.closest('.srch-card').classList.remove('expanded');
-//             }
-//         });
-//     });
-// });
+    // Close the dropdown when clicking outside
+    window.addEventListener('click', function(event) {
+        const dropdownContents = document.querySelectorAll('.dropdown-content');
+        dropdownContents.forEach(content => {
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
+                // Also remove expanded class
+                content.closest('.srch-card').classList.remove('expanded');
+            }
+        });
+    });
+});
 
 document.addEventListener('DOMContentLoaded', function() {
     const dropdowns = document.querySelectorAll('.arr-down');
@@ -111,52 +111,86 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Function to close the dropdown
-function closeDropdown(element) {
-    const dropdownContent = element.closest('.dropdown-content');
-    if (dropdownContent) {
-        dropdownContent.classList.remove('show');
-        dropdownContent.closest('.srch-card').classList.remove('expanded');
-        resetTabs(dropdownContent); // Reset tabs when closed
+
+// Function to toggle the dropdown and open the corresponding tab
+function toggleDropdown(event) {
+    event.stopPropagation(); // Stop the event from bubbling up
+    
+    const dropdown = event.currentTarget; // Current clicked dropdown
+    const tabName = dropdown.getAttribute('data-tab'); // Get the tab name from data-tab attribute
+    const card = dropdown.closest('.srch-card'); // Find the closest card
+
+    // Get the corresponding dropdown content
+    const dropdownContent = card.querySelector('.dropdown-content');
+    
+    // Toggle the dropdown visibility
+    dropdownContent.classList.toggle('show');
+
+    // If dropdown is shown, open the corresponding tab
+    if (dropdownContent.classList.contains('show')) {
+        openTab(event, tabName); // Call openTab to show the content of the clicked tab
+    } else {
+        card.classList.remove('expanded'); // Close the dropdown
+        resetTabs(dropdownContent); // Reset the tabs if dropdown is closed
     }
 }
 
-// Function to open corresponding tab content
+// Function to open the corresponding tab content
+// Function to open the corresponding tab content
 function openTab(evt, tabName) {
-    // Hide all tab contents
+    // Hide all tab content sections
     var tabcontent = document.getElementsByClassName("tabcontent");
     for (var i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+        tabcontent[i].style.display = "none"; // Hide all tab content
     }
 
-    // Remove active class from all tab buttons
+    // Remove 'active' class from all tab links
     var tablinks = document.getElementsByClassName("tablinks");
     for (var i = 0; i < tablinks.length; i++) {
         tablinks[i].classList.remove("active");
     }
 
     // Show the selected tab content
-    document.getElementById(tabName).style.display = "block";
+    document.getElementById(tabName).style.display = "block"; 
 
-    // Set the clicked tab as active
-    if (evt) {
-        evt.currentTarget.classList.add("active");
+    // Add the 'active' class to the clicked tab
+    evt.currentTarget.classList.add("active");
+}
+
+
+// Function to reset tabs
+function resetTabs(dropdownContent) {
+    // Remove active class from all tab links
+    const tablinks = dropdownContent.querySelectorAll(".tablinks");
+    tablinks.forEach(tab => tab.classList.remove("active"));
+
+    // Hide all tab contents
+    const tabcontent = dropdownContent.querySelectorAll(".tabcontent");
+    tabcontent.forEach(content => content.style.display = "none");
+}
+
+// Function to close dropdown manually (on close button)
+function closeDropdown(element) {
+    const dropdownContent = element.closest('.dropdown-content');
+    if (dropdownContent) {
+        dropdownContent.classList.remove('show');
+        dropdownContent.closest('.srch-card').classList.remove('expanded');
+        resetTabs(dropdownContent);
     }
 }
 
-// Function to reset all tabs
-function resetTabs(dropdownContent) {
-    const tablinks = dropdownContent.querySelectorAll(".tablinks");
-    tablinks.forEach(tab => tab.classList.remove("active")); // Remove active class
-    const tabcontent = dropdownContent.querySelectorAll(".tabcontent");
-    tabcontent.forEach(content => content.style.display = "none"); // Hide all contents
-}
-
-
-
-
-
-
+// Close dropdown if clicked outside
+window.addEventListener('click', function(event) {
+    const dropdownContents = document.querySelectorAll('.dropdown-content');
+    dropdownContents.forEach(function(content) {
+        if (!content.contains(event.target) && content.classList.contains('show')) {
+            content.classList.remove('show');
+            content.closest('.srch-card').classList.remove('expanded');
+            resetTabs(content); // Reset tabs when closed
+        }
+    });
+});
+  
 
 
 

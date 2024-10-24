@@ -678,13 +678,15 @@
                     </div>
                     <div>
                       9+ Pickups
-                      <div class="arr-down" onclick="toggleDropdown(event)" data-tab="Pickup">
+                      <div
+                        class="arr-down"
+                        onclick="toggleDropdown(event)"
+                        data-tab="Pickup"
+                      >
                         <span></span>
                       </div>
                     </div>
                   </div>
-
-                 
 
                   <div
                     class="dur-blk"
@@ -697,7 +699,11 @@
                     <div></div>
                     <div class="policy-cls">
                       Policies
-                      <div class="arr-down" onclick="toggleDropdown(event)" data-tab="Policies">
+                      <div
+                        class="arr-down"
+                        onclick="toggleDropdown(event)"
+                        data-tab="Policies"
+                      >
                         <span></span>
                       </div>
                     </div>
@@ -711,7 +717,11 @@
                     </div>
                     <div>
                       6+ Drop-off
-                      <div class="arr-down" onclick="toggleDropdown(event)" data-tab="DropOff">
+                      <div
+                        class="arr-down"
+                        onclick="toggleDropdown(event)"
+                        data-tab="DropOff"
+                      >
                         <span></span>
                       </div>
                     </div>
@@ -772,15 +782,17 @@
                 <div id="Policies" class="tabcontent">Policies Content...</div>
               </div> -->
 
-              <div class="dropdown-content" >
+              <div class="dropdown-content">
                 <!-- Dropdown content here (same for each card) -->
                 <!-- Close button -->
-                <span class="close-btn" onclick="closeDropdown(this)">×</span>
+                <span class="close-btn" onclick="closeDropdown(this)"
+                  >X Close</span
+                >
 
                 <!-- Tab Buttons -->
                 <div class="tab">
                   <button
-                    class="tablinks "
+                    class="tablinks"
                     data-tab="SeatChart"
                     onclick="openTab(event, 'SeatChart')"
                   >
@@ -835,111 +847,149 @@
                   Seat Chart Content...
                 </div>
 
-               
-                <div class="pickup-content">
+                <div id="Pickup" class="Pickup-content tabcontent">
                   <!-- Left Section: Search and List -->
                   <div class="sc-point left">
-                      <!-- Search Box -->
-                      <div class="sc-pt-inp">
-                          <span>
-                              <svg x="0px" y="0px" width="15px" height="15px" viewBox="0 0 11.178 11.179" enable-background="new 0 0 11.178 11.179" fill="#999">
-                                  <path d="M7.989,7.031H7.485l-0.18-0.173c0.627-0.729,1.004-1.675,1.004-2.704C8.309,1.86,6.449,0,4.154,0C1.86,0,0,1.86,0,4.154 C0,6.449,1.86,8.31,4.154,8.31c1.029,0,1.975-0.377,2.704-1.004l0.173,0.178v0.506l3.195,3.189l0.952-0.952L7.989,7.031z M4.154,7.031c-1.591,0-2.876-1.285-2.876-2.877c0-1.591,1.285-2.876,2.876-2.876c1.592,0,2.876,1.285,2.876,2.876 C7.031,5.746,5.746,7.031,4.154,7.031z"></path>
-                              </svg>
-                          </span>
-                          <input type="text" placeholder="Search from pickup locations and click to select" id="search_pickup" />
-                      </div>
-              
-                      <!-- Pickup Locations List with Radio Buttons -->
-                      <div class="sc-pt-loc scroller">
-                          <!-- Pickup Item Example with Radio Button -->
-                          <label class="clearfix sc-pt-wrap">
-                              <input type="radio" name="pickup-location" value="koyambedu">
-                              <div class="left sc-pt-tm">
-                                  <div>21:00</div>
-                                  <div>23rd Oct 2024</div>
-                              </div>
-                              <div class="left sc-pt-addr">
-                                  <div title="Koyambedu">Koyambedu</div>
-                                  <div>Koyambedu</div>
-                              </div>
-                          </label>
-              
-                          <label class="clearfix sc-pt-wrap">
-                              <input type="radio" name="pickup-location" value="maduravoyal">
-                              <div class="left sc-pt-tm">
-                                  <div>21:15</div>
-                                  <div>23rd Oct 2024</div>
-                              </div>
-                              <div class="left sc-pt-addr">
-                                  <div title="Maduravoyal">Maduravoyal</div>
-                                  <div>Maduravoyal</div>
-                              </div>
-                          </label>
-              
-                          <!-- Add more radio button options here -->
-                          <label class="clearfix sc-pt-wrap">
-                              <input type="radio" name="pickup-location" value="velappanchavadi">
-                              <div class="left sc-pt-tm">
-                                  <div>21:25</div>
-                                  <div>23rd Oct 2024</div>
-                              </div>
-                              <div class="left sc-pt-addr">
-                                  <div title="Velappanchavadi Bus Stop">Velappanchavadi Bus Stop</div>
-                                  <div>Velappanchavadi Bus Stop</div>
-                              </div>
-                          </label>
-              
-                          <label class="clearfix sc-pt-wrap">
-                              <input type="radio" name="pickup-location" value="poonamallee-bypass">
-                              <div class="left sc-pt-tm">
-                                  <div>21:40</div>
-                                  <div>23rd Oct 2024</div>
-                              </div>
-                              <div class="left sc-pt-addr">
-                                  <div title="Poonamallee Bypass">Poonamallee Bypass</div>
-                                  <div>Poonamallee Bypass</div>
-                              </div>
-                          </label>
-              
-                          <label class="clearfix sc-pt-wrap">
-                              <input type="radio" name="pickup-location" value="kfc-poonamalle"/>
-                              <div class="left sc-pt-tm">
-                                  <div>21:50</div>
-                                  <div>23rd Oct 2024</div>
-                           
-                              </div>
-                              <div class="left sc-pt-addr">
-                                  <div title="KFC, Poonamalle">KFC, Poonamalle</div>
-                                  <div>KFC, Poonamalle</div>
-                              </div>
-                          </label>
-              
-                          <label class="clearfix sc-pt-wrap">
-                              <input type="radio" name="pickup-location" value="sriperumbudur">
-                              <div class="left sc-pt-tm">
-                                  <div>22:10</div>
-                                  <div>23rd Oct 2024</div>
-                              </div>
-                              <div class="left sc-pt-addr">
-                                  <div title="Sriperumbudur">Sriperumbudur</div>
-                                  <div>Sriperumbudur</div>
-                              </div>
-                          </label>
-                      </div>
+                    <!-- Search Box -->
+                    <div class="sc-pt-inp">
+                      <span>
+                        <svg
+                          x="0px"
+                          y="0px"
+                          width="15px"
+                          height="15px"
+                          viewBox="0 0 11.178 11.179"
+                          enable-background="new 0 0 11.178 11.179"
+                          fill="#999"
+                        >
+                          <path
+                            d="M7.989,7.031H7.485l-0.18-0.173c0.627-0.729,1.004-1.675,1.004-2.704C8.309,1.86,6.449,0,4.154,0C1.86,0,0,1.86,0,4.154 C0,6.449,1.86,8.31,4.154,8.31c1.029,0,1.975-0.377,2.704-1.004l0.173,0.178v0.506l3.195,3.189l0.952-0.952L7.989,7.031z M4.154,7.031c-1.591,0-2.876-1.285-2.876-2.877c0-1.591,1.285-2.876,2.876-2.876c1.592,0,2.876,1.285,2.876,2.876 C7.031,5.746,5.746,7.031,4.154,7.031z"
+                          ></path>
+                        </svg>
+                      </span>
+                      <input
+                        type="text"
+                        placeholder="Search from pickup locations and click to select"
+                        id="search_pickup"
+                      />
+                    </div>
+
+                    <!-- Pickup Locations List with Radio Buttons -->
+                    <div class="sc-pt-loc scroller">
+                      <!-- Pickup Item Example with Radio Button -->
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="koyambedu"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:00</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Koyambedu">Koyambedu</div>
+                          <div>Koyambedu</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="maduravoyal"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:15</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Maduravoyal">Maduravoyal</div>
+                          <div>Maduravoyal</div>
+                        </div>
+                      </label>
+
+                      <!-- Add more radio button options here -->
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="velappanchavadi"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:25</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Velappanchavadi Bus Stop">
+                            Velappanchavadi Bus Stop
+                          </div>
+                          <div>Velappanchavadi Bus Stop</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="poonamallee-bypass"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:40</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Poonamallee Bypass">
+                            Poonamallee Bypass
+                          </div>
+                          <div>Poonamallee Bypass</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="kfc-poonamalle"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:50</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="KFC, Poonamalle">KFC, Poonamalle</div>
+                          <div>KFC, Poonamalle</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="sriperumbudur"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>22:10</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Sriperumbudur">Sriperumbudur</div>
+                          <div>Sriperumbudur</div>
+                        </div>
+                      </label>
+                    </div>
                   </div>
-              
+
                   <!-- Right Section: Button and Info -->
                   <div class="left sc-pt-txt">
-                      <div class="sc-pt-info scroller">
-                          <button class="ty-btn new-gray">TAP ON pickup POINT</button>
-                          <div>Please select a pickup location<br>to proceed</div>
-                      </div>
+                    <div class="sc-pt-info scroller">
+                      <button class="ty-btn new-gray">
+                        TAP ON pickup POINT
+                      </button>
+                      <div>Please select a pickup location<br />to proceed</div>
+                    </div>
                   </div>
-              </div>
-              
-              
-                          
-
+                </div> 
 
                 <div id="DropOff" class="tabcontent">Drop-off Content...</div>
 
