@@ -120,6 +120,17 @@ function toggleDropdown(event) {
     const tabName = dropdown.getAttribute('data-tab'); // Get the tab name from data-tab attribute
     const card = dropdown.closest('.srch-card'); // Find the closest card
 
+
+     // Toggle the "active" class on the card to show/hide the dropdown
+     card.classList.toggle('active');
+
+     // Ensure only one dropdown is open at a time (optional)
+     document.querySelectorAll('.srch-card').forEach(otherCard => {
+         if (otherCard !== card) {
+             otherCard.classList.remove('active');
+         }
+     });
+
     // Get the corresponding dropdown content
     const dropdownContent = card.querySelector('.dropdown-content');
     
@@ -133,7 +144,12 @@ function toggleDropdown(event) {
         card.classList.remove('expanded'); // Close the dropdown
         resetTabs(dropdownContent); // Reset the tabs if dropdown is closed
     }
+    
+   
 }
+
+
+
 
 // Function to open the corresponding tab content
 // Function to open the corresponding tab content
@@ -170,14 +186,20 @@ function resetTabs(dropdownContent) {
 }
 
 // Function to close dropdown manually (on close button)
+// Function to close dropdown manually (on close button)
 function closeDropdown(element) {
     const dropdownContent = element.closest('.dropdown-content');
     if (dropdownContent) {
-        dropdownContent.classList.remove('show');
-        dropdownContent.closest('.srch-card').classList.remove('expanded');
-        resetTabs(dropdownContent);
+        dropdownContent.classList.remove('show'); // Remove 'show' class to hide dropdown
+        const srchCard = dropdownContent.closest('.srch-card');
+        if (srchCard) {
+            srchCard.classList.remove('expanded'); // Remove 'expanded' class if any
+            srchCard.classList.remove('active');   // Remove 'active' class to ensure dropdown hides
+        }
+        resetTabs(dropdownContent); // Reset tabs if needed
     }
 }
+
 
 // Close dropdown if clicked outside
 window.addEventListener('click', function(event) {

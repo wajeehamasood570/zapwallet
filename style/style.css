@@ -2997,6 +2997,12 @@ label.glabel.active.err-inp {
 .srch-card.active {
   border: 1px solid #0089cf;
 }
+
+/* Show the dropdown when toggled */
+.srch-card.active .dropdown-content {
+  display: block;
+}
+
 .srch-card.active .srch-top {
   padding: 10px 25px;
   border-bottom: 1px solid #ddd;
@@ -5524,6 +5530,11 @@ input[type="number"]::-webkit-outer-spin-button {
   /* overflow-y: auto; */
   z-index: 1;
   border: 1px solid #ddd;
+  top: 70px; /* Adjust based on the height of the dropdown, use negative value to position it above */
+  left: 0;
+  height: 500px; /* Limit height if needed */
+  /* overflow-y: auto; */
+  border: 1px solid #0089cf;
 }
 
 
@@ -5557,6 +5568,8 @@ input[type="number"]::-webkit-outer-spin-button {
 .tabcontent {
   display: none; /* Hidden by default */
   /* padding: 15px; */
+  background-color: white;
+  height: 380px;
 }
 
 .active {
@@ -5719,7 +5732,7 @@ input[type="number"]::-webkit-outer-spin-button {
 /* Dropdown container inside each card */
 .dropdown-content {
   display: none;
-  background-color: white;
+  background-color: #f9f9f9;
   border: 1px solid #ccc;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 10px;
@@ -5728,9 +5741,9 @@ input[type="number"]::-webkit-outer-spin-button {
   position: absolute;
   bottom: 100%; /* Positioned above the card */
   left: 0;
-  z-index: 1000;
-  height: 450px;
-  /* overflow-y: auto; Scrollable if content exceeds dropdown height */
+  z-index: 10;
+  /* height: 450px; */
+  
 }
 
 /* Dropdown visible */
@@ -5753,7 +5766,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 /* Ensure that the rest of the page is pushed down */
 .srch-card.expanded {
-  margin-top: 470px; /* Space for expanded dropdown above */
+  margin-bottom: 470px; 
   position: relative; /* Ensures dropdown is positioned correctly inside the card */
   z-index: 999;
 }
@@ -5774,7 +5787,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 
   .srch-card.expanded {
-    margin-top: 500px; /* Extra space for dropdown above on mobile */
+    /* margin-top: 500px; Extra space for dropdown above on mobile */
   }
 }
 
@@ -5784,7 +5797,7 @@ input[type="number"]::-webkit-outer-spin-button {
   justify-content: space-between;
   align-items: flex-start;
   margin-top: 15px;
-  height: auto;
+  /* height: auto; */
   background-color: white;
   padding: 10px;
 }
