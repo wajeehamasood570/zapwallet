@@ -639,12 +639,13 @@
                     "
                   ></div>
                 </div>
-                <div class="time-pick-blk">
+                <div class="time-pick-blk" style="display: flex;">
                   <div class="pick-blk dark-txt">18:55</div>
                   <div class="dur-blk dur">
                     <span class="dur-ln"></span
                     ><span class="dur-txt">6:35hrs</span>
                   </div>
+                  <div class="drop-blk dark-txt">18:55</div>
                 </div>
                 <div class="fare-st-blk">
                   <div class="dark-txt">₹599</div>
@@ -729,7 +730,14 @@
                 </div>
                 <div class="fare-st-blk">
                   <div class="st-offr-blk">5 seats</div>
-                  <div class="ty-btn orange" id="view_chart">Select Seat</div>
+                  <div
+                    class="ty-btn orange arr-down"
+                    id="view_chart"
+                    onclick="toggleDropdown(event)"
+                    data-tab="SeatChart"
+                  >
+                    Select Seat
+                  </div>
                 </div>
               </div>
 
@@ -825,13 +833,6 @@
                     onclick="openTab(event, 'YourInfo')"
                   >
                     Your Info
-                  </button>
-                  <button
-                    class="tablinks"
-                    data-tab="TrustScore"
-                    onclick="openTab(event, 'TrustScore')"
-                  >
-                    Trust Score
                   </button>
                   <button
                     class="tablinks"
@@ -1353,6 +1354,7 @@
                     <span class="dur-ln"></span
                     ><span class="dur-txt">7:08hrs</span>
                   </div>
+                  <div class="drop-blk dark-txt">18:55</div>
                 </div>
                 <div class="fare-st-blk">
                   <div class="dark-txt">₹600</div>

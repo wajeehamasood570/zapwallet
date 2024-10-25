@@ -2887,6 +2887,10 @@ label.glabel.active.err-inp {
 }
 .srch-card .time-pick-blk {
   width: 53%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap:5%;
 }
 .srch-card .time-pick-blk > div {
   position: relative;
@@ -2899,7 +2903,7 @@ label.glabel.active.err-inp {
   text-overflow: ellipsis;
 }
 .srch-card .pick-blk {
-  width: 30%;
+  width: 35%;
   padding: 0 3%;
 }
 .covid-safe-label {
