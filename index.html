@@ -740,56 +740,6 @@
                   </div>
                 </div>
               </div>
-
-              <!-- Dropdown Container -->
-              <!-- <div id="dropdown" class="dropdown-content">
-                <div class="tab">
-                  <button
-                    class="tablinks"
-                    onclick="openTab(event, 'SeatChart')"
-                  >
-                    Seat Chart
-                  </button>
-                  <button class="tablinks" onclick="openTab(event, 'Pickup')">
-                    Pickup
-                  </button>
-                  <button class="tablinks" onclick="openTab(event, 'DropOff')">
-                    Drop-off
-                  </button>
-                  <button
-                    class="tablinks"
-                    onclick="openTab(event, 'PassengerInfo')"
-                  >
-                    Passenger Info
-                  </button>
-                  <button class="tablinks" onclick="openTab(event, 'YourInfo')">
-                    Your Info
-                  </button>
-                  <button
-                    class="tablinks"
-                    onclick="openTab(event, 'TrustScore')"
-                  >
-                    Trust Score
-                  </button>
-                  <button class="tablinks" onclick="openTab(event, 'Policies')">
-                    Policies
-                  </button>
-                </div>
-                <div id="SeatChart" class="tabcontent">
-                  Seat Chart Content...
-                </div>
-                <div id="Pickup" class="tabcontent">Pickup Content...</div>
-                <div id="DropOff" class="tabcontent">Drop-off Content...</div>
-                <div id="PassengerInfo" class="tabcontent">
-                  Passenger Info Content...
-                </div>
-                <div id="YourInfo" class="tabcontent">Your Info Content...</div>
-                <div id="TrustScore" class="tabcontent">
-                  Trust Score Content...
-                </div>
-                <div id="Policies" class="tabcontent">Policies Content...</div>
-              </div> -->
-
               <div class="dropdown-content">
                 <!-- Dropdown content here (same for each card) -->
                 <!-- Close button -->
@@ -858,12 +808,12 @@
                       <div class="seat-layout">
                         <div class="seat-grid">
                           <!-- Repeatable seat elements -->
-                          <div class="seat normal">₹380</div>
+                          <div class="seat normal" data-price="380">₹380</div>
                           <div class="seat sold">Sold</div>
-                          <div class="seat female">₹380</div>
-                          <div class="seat male">₹380</div>
-                          <div class="seat normal">₹380</div>
-                          <div class="seat normal">₹380</div>
+                          <div class="seat female" data-price="380">₹380</div>
+                          <div class="seat male" data-price="380">₹380</div>
+                          <div class="seat normal" data-price="380">₹380</div>
+                          <div class="seat normal" data-price="380">₹380</div>
                           <!-- Add as many seat elements as necessary -->
                         </div>
                       </div>
@@ -875,10 +825,10 @@
                       <p>₹0 cashback as TYCoins will be added</p>
                       <h4>Fare Summary</h4>
                       <div class="fare-details">
-                        <p>Base fare: ₹<span>0</span></p>
+                        <p>Base fare: ₹<span id="baseFare">0</span></p>
                         <p>TYCoins redeemed: ₹<span>0</span></p>
                         <p>Operator discount: ₹<span>0</span></p>
-                        <p>Final Price: ₹<span>400</span></p>
+                        <p>Final Price: ₹<span id="finalPrice">0</span></p>
                       </div>
                       <!-- Seat Legend -->
                       <div class="legend">
@@ -895,7 +845,11 @@
                   </div>
                 </div>
 
-                <div id="Pickup" class="Pickup-content tabcontent">
+                <div
+                  id="Pickup"
+                  class="Pickup-content tabcontent"
+                  style="display: block"
+                >
                   <!-- Left Section: Search and List -->
                   <div class="sc-point left">
                     <!-- Search Box -->
@@ -1031,7 +985,7 @@
                   <!-- Right Section: Button and Info -->
                   <div class="left sc-pt-txt">
                     <div class="sc-pt-info scroller">
-                      <button class="ty-btn new-gray">
+                      <button class="ty-btn new-gray pickup-btn">
                         TAP ON pickup POINT
                       </button>
                       <div>Please select a pickup location<br />to proceed</div>
@@ -1061,7 +1015,7 @@
                       </span>
                       <input
                         type="text"
-                        placeholder="Search from pickup locations and click to select"
+                        placeholder="Search from dropoff locations and click to select"
                         id="search_pickup"
                       />
                     </div>
@@ -1072,7 +1026,7 @@
                       <label class="clearfix sc-pt-wrap">
                         <input
                           type="radio"
-                          name="pickup-location"
+                          name="dropoff-location"
                           value="koyambedu"
                         />
                         <div class="left sc-pt-tm">
@@ -1088,7 +1042,7 @@
                       <label class="clearfix sc-pt-wrap">
                         <input
                           type="radio"
-                          name="pickup-location"
+                          name="dropoff-location"
                           value="maduravoyal"
                         />
                         <div class="left sc-pt-tm">
@@ -1105,7 +1059,7 @@
                       <label class="clearfix sc-pt-wrap">
                         <input
                           type="radio"
-                          name="pickup-location"
+                          name="dropoff-location"
                           value="velappanchavadi"
                         />
                         <div class="left sc-pt-tm">
@@ -1123,7 +1077,7 @@
                       <label class="clearfix sc-pt-wrap">
                         <input
                           type="radio"
-                          name="pickup-location"
+                          name="dropoff-location"
                           value="poonamallee-bypass"
                         />
                         <div class="left sc-pt-tm">
@@ -1141,7 +1095,7 @@
                       <label class="clearfix sc-pt-wrap">
                         <input
                           type="radio"
-                          name="pickup-location"
+                          name="dropoff-location"
                           value="kfc-poonamalle"
                         />
                         <div class="left sc-pt-tm">
@@ -1157,7 +1111,7 @@
                       <label class="clearfix sc-pt-wrap">
                         <input
                           type="radio"
-                          name="pickup-location"
+                          name="dropoff-location"
                           value="sriperumbudur"
                         />
                         <div class="left sc-pt-tm">
@@ -1175,16 +1129,81 @@
                   <!-- Right Section: Button and Info -->
                   <div class="left sc-pt-txt">
                     <div class="sc-pt-info scroller">
-                      <button class="ty-btn new-gray">
-                        TAP ON pickup POINT
+                      <button class="ty-btn new-gray dropoff-btn">
+                        TAP ON drop-off POINT
                       </button>
-                      <div>Please select a pickup location<br />to proceed</div>
+                      <div>
+                        Please select a drop-off location<br />to proceed
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 <div id="PassengerInfo" class="tabcontent">
-                  Passenger Info Content...
+                  <div class="passenger-info-container">
+                    
+
+                    <div class="passenger-info-content">
+                      <!-- Seat Number -->
+                      <div class="seat-number">
+                        <span class="seat-badge">3B</span>
+                        <label class="seat-label">Seat No</label>
+                      </div>
+
+                      <!-- Name Input -->
+                      <div class="input-group">
+                        <label for="name">Name</label>
+                        <input
+                          type="text"
+                          id="name"
+                          placeholder="Enter your name"
+                        />
+                      </div>
+
+                      <!-- Age Input -->
+                      <div class="input-group">
+                        <label for="age">Age</label>
+                        <input
+                          type="number"
+                          id="age"
+                          placeholder="Enter your age"
+                        />
+                      </div>
+
+                      <!-- Gender Selection -->
+                      <div class="input-group gender-group">
+                        <label>Gender</label>
+                        <div class="gender-options">
+                          <input
+                            type="radio"
+                            id="male"
+                            name="gender"
+                            value="Male"
+                          />
+                          <label for="male">Male</label>
+                          <input
+                            type="radio"
+                            id="female"
+                            name="gender"
+                            value="Female"
+                          />
+                          <label for="female">Female</label>
+                        </div>
+                      </div>
+
+                      <div>
+                        <!-- Submit Button -->
+                        <button class="submit-btn">
+                          ENTER NAME, AGE, GENDER
+                        </button>
+
+                        <!-- Selected Seats Info -->
+                        <div class="seat-info">
+                          <p>You have selected 1 seat</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
 
                 <div id="YourInfo" class="tabcontent">

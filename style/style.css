@@ -6382,3 +6382,113 @@ input[type="radio"]:checked::before {
     padding: 12px;
   }
 }
+
+
+
+
+/* //passenger info */
+.passenger-info-container {
+  padding: 20px;
+}
+
+/* Passenger Info Header */
+.passenger-info-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.passenger-info-header h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #444;
+  margin: 0;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+}
+
+/* Passenger Info Content */
+.passenger-info-content {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.seat-number {
+  text-align: center;
+}
+
+.seat-badge {
+  display: inline-block;
+  font-size: 2rem;
+  background-color: #f1f1f1;
+  border-radius: 50%;
+  padding: 10px 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.seat-label {
+  display: block;
+  font-size: 0.9rem;
+  color: #888;
+  margin-top: 10px;
+}
+
+/* Input Group Styles */
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.input-group input {
+  padding: 10px;
+  font-size: 1rem;
+  width: 100%;
+}
+
+/* Gender Group Styles */
+.gender-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.gender-options {
+  display: flex;
+  gap: 15px;
+}
+
+.gender-options input {
+  margin-right: 5px;
+}
+
+/* Submit Button Styles */
+.submit-btn {
+  background-color: #f25a2b;
+  color: white;
+  font-size: 1rem;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  text-align: center;
+  transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+  background-color: #e14a1a;
+}
+
+/* Seat Selection Info */
+.seat-info {
+  text-align: center;
+  color: #666;
+  margin-top: 15px;
+}
