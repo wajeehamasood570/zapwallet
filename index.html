@@ -750,42 +750,42 @@
                 <!-- Tab Buttons -->
                 <div class="tab">
                   <button
-                    class="tablinks"
+                    class="search-trigger tablinks"
                     data-tab="SeatChart"
                     onclick="openTab(event, 'SeatChart')"
                   >
                     Seat Chart
                   </button>
                   <button
-                    class="tablinks"
+                    class="search-trigger tablinks"
                     data-tab="Pickup"
                     onclick="openTab(event, 'Pickup')"
                   >
                     Pickup
                   </button>
                   <button
-                    class="tablinks"
+                    class="search-trigger tablinks"
                     data-tab="DropOff"
                     onclick="openTab(event, 'DropOff')"
                   >
                     Drop-off
                   </button>
                   <button
-                    class="tablinks"
+                    class="search-trigger tablinks"
                     data-tab="PassengerInfo"
                     onclick="openTab(event, 'PassengerInfo')"
                   >
                     Passenger Info
                   </button>
                   <button
-                    class="tablinks"
+                    class="search-trigger tablinks"
                     data-tab="YourInfo"
                     onclick="openTab(event, 'YourInfo')"
                   >
                     Your Info
                   </button>
                   <button
-                    class="tablinks"
+                    class="search-trigger tablinks"
                     data-tab="Policies"
                     onclick="openTab(event, 'Policies')"
                   >
@@ -810,10 +810,10 @@
                           <!-- Repeatable seat elements -->
                           <div class="seat normal" data-price="380">₹380</div>
                           <div class="seat sold">Sold</div>
-                          <div class="seat female" data-price="380">₹380</div>
-                          <div class="seat male" data-price="380">₹380</div>
+                          <div class="seat normal" data-price="580">₹580</div>
                           <div class="seat normal" data-price="380">₹380</div>
-                          <div class="seat normal" data-price="380">₹380</div>
+                          <div class="seat normal" data-price="780">₹780</div>
+                          <div class="seat normal" data-price="980">₹980</div>
                           <!-- Add as many seat elements as necessary -->
                         </div>
                       </div>
@@ -1141,8 +1141,6 @@
 
                 <div id="PassengerInfo" class="tabcontent">
                   <div class="passenger-info-container">
-                    
-
                     <div class="passenger-info-content">
                       <!-- Seat Number -->
                       <div class="seat-number">
@@ -1154,7 +1152,7 @@
                       <div class="input-group">
                         <label for="name">Name</label>
                         <input
-                          type="text"
+                          type="name"
                           id="name"
                           placeholder="Enter your name"
                         />
@@ -1324,6 +1322,7 @@
                 </div>
               </div>
             </div>
+
             <div class="srch-card">
               <div class="srch-top clearfix" style="padding-top: 20px">
                 <div class="label-blk" style="display: flex">
@@ -1367,11 +1366,11 @@
                     </span>
                   </div>
                 </div>
-                <div class="time-pick-blk">
-                  <div class="pick-blk dark-txt">20:00</div>
+                <div class="time-pick-blk" style="display: flex">
+                  <div class="pick-blk dark-txt">18:55</div>
                   <div class="dur-blk dur">
                     <span class="dur-ln"></span
-                    ><span class="dur-txt">7:08hrs</span>
+                    ><span class="dur-txt">6:35hrs</span>
                   </div>
                   <div class="drop-blk dark-txt">18:55</div>
                 </div>
@@ -1386,16 +1385,21 @@
                 </div>
                 <div class="time-pick-blk" style="display: flex">
                   <div class="pick-blk">
-                    <div title="SIRUSERI" style="padding-bottom: 5px">
-                      SIRUSERI
+                    <div title="Koyembedu" style="padding-bottom: 5px">
+                      Koyembedu
                     </div>
                     <div>
-                      22+ Pickups
-                      <div class="arr-down" onclick="toggleDropdown(event)">
+                      9+ Pickups
+                      <div
+                        class="arr-down"
+                        onclick="toggleDropdown(event)"
+                        data-tab="Pickup"
+                      >
                         <span></span>
                       </div>
                     </div>
                   </div>
+
                   <div
                     class="dur-blk"
                     style="
@@ -1407,80 +1411,629 @@
                     <div></div>
                     <div class="policy-cls">
                       Policies
-                      <div class="arr-down" onclick="toggleDropdown(event)">
+                      <div
+                        class="arr-down"
+                        onclick="toggleDropdown(event)"
+                        data-tab="Policies"
+                      >
                         <span></span>
                       </div>
                     </div>
                   </div>
                   <div class="drop-blk">
-                    <div title="toll gate" style="padding-bottom: 5px">
-                      toll gate
+                    <div
+                      title="Athibele Toll plaza"
+                      style="padding-bottom: 5px"
+                    >
+                      Athibele Toll plaza
                     </div>
                     <div>
-                      9+ Drop-off
-                      <div class="arr-down" onclick="toggleDropdown(event)">
+                      6+ Drop-off
+                      <div
+                        class="arr-down"
+                        onclick="toggleDropdown(event)"
+                        data-tab="DropOff"
+                      >
                         <span></span>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="fare-st-blk">
-                  <div class="st-offr-blk">19 seats</div>
-                  <div class="ty-btn orange" id="view_chart">Select Seat</div>
+                  <div class="st-offr-blk">5 seats</div>
+                  <div
+                    class="ty-btn orange arr-down"
+                    id="view_chart"
+                    onclick="toggleDropdown(event)"
+                    data-tab="SeatChart"
+                  >
+                    Select Seat
+                  </div>
                 </div>
               </div>
               <div class="dropdown-content">
+                <!-- Dropdown content here (same for each card) -->
                 <!-- Close button -->
-                <span class="close-btn" onclick="closeDropdown(this)">×</span>
+                <span class="close-btn" onclick="closeDropdown(this)"
+                  >X Close</span
+                >
 
+                <!-- Tab Buttons -->
                 <div class="tab">
                   <button
-                    class="tablinks"
+                    class="search-trigger tablinks"
+                    data-tab="SeatChart"
                     onclick="openTab(event, 'SeatChart')"
                   >
                     Seat Chart
                   </button>
-                  <button class="tablinks" onclick="openTab(event, 'Pickup')">
+                  <button
+                    class="search-trigger tablinks"
+                    data-tab="Pickup"
+                    onclick="openTab(event, 'Pickup')"
+                  >
                     Pickup
                   </button>
-                  <button class="tablinks" onclick="openTab(event, 'DropOff')">
+                  <button
+                    class="search-trigger tablinks"
+                    data-tab="DropOff"
+                    onclick="openTab(event, 'DropOff')"
+                  >
                     Drop-off
                   </button>
                   <button
-                    class="tablinks"
+                    class="search-trigger tablinks"
+                    data-tab="PassengerInfo"
                     onclick="openTab(event, 'PassengerInfo')"
                   >
                     Passenger Info
                   </button>
-                  <button class="tablinks" onclick="openTab(event, 'YourInfo')">
+                  <button
+                    class="search-trigger tablinks"
+                    data-tab="YourInfo"
+                    onclick="openTab(event, 'YourInfo')"
+                  >
                     Your Info
                   </button>
                   <button
-                    class="tablinks"
-                    onclick="openTab(event, 'TrustScore')"
+                    class="search-trigger tablinks"
+                    data-tab="Policies"
+                    onclick="openTab(event, 'Policies')"
                   >
-                    Trust Score
-                  </button>
-                  <button class="tablinks" onclick="openTab(event, 'Policies')">
                     Policies
                   </button>
                 </div>
 
+                <!-- Tab Content -->
                 <div id="SeatChart" class="tabcontent">
-                  Seat Chart Content...
+                  <div class="seat-chart-wrapper">
+                    <!-- Left: Price Filter -->
+                    <div class="price-filter">
+                      <h4>Filter by Price</h4>
+                      <input type="range" min="100" max="1000" step="50" />
+                      <p>₹100 - ₹1000</p>
+                    </div>
+
+                    <!-- Middle: Seat Chart -->
+                    <div class="seat-chart-container">
+                      <div class="seat-layout">
+                        <div class="seat-grid">
+                          <!-- Repeatable seat elements -->
+                          <div class="seat normal" data-price="380">₹380</div>
+                          <div class="seat sold">Sold</div>
+                          <div class="seat normal" data-price="580">₹580</div>
+                          <div class="seat normal" data-price="380">₹380</div>
+                          <div class="seat normal" data-price="780">₹780</div>
+                          <div class="seat normal" data-price="980">₹980</div>
+                          <!-- Add as many seat elements as necessary -->
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Right: Fare Summary -->
+                    <div class="fare-summary">
+                      <button class="select-seat-btn">TAP ON SEAT</button>
+                      <p>₹0 cashback as TYCoins will be added</p>
+                      <h4>Fare Summary</h4>
+                      <div class="fare-details">
+                        <p>Base fare: ₹<span id="baseFare">0</span></p>
+                        <p>TYCoins redeemed: ₹<span>0</span></p>
+                        <p>Operator discount: ₹<span>0</span></p>
+                        <p>Final Price: ₹<span id="finalPrice">0</span></p>
+                      </div>
+                      <!-- Seat Legend -->
+                      <div class="legend">
+                        <span
+                          ><span class="seat-legend normal"></span>Normal</span
+                        >
+                        <span
+                          ><span class="seat-legend female"></span>Female</span
+                        >
+                        <span><span class="seat-legend male"></span>Male</span>
+                        <span><span class="seat-legend sold"></span>Sold</span>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div id="Pickup" class="tabcontent">Pickup Content...</div>
-                <div id="DropOff" class="tabcontent">Drop-off Content...</div>
+
+                <div
+                  id="Pickup"
+                  class="Pickup-content tabcontent"
+                  style="display: block"
+                >
+                  <!-- Left Section: Search and List -->
+                  <div class="sc-point left">
+                    <!-- Search Box -->
+                    <div class="sc-pt-inp">
+                      <span>
+                        <svg
+                          x="0px"
+                          y="0px"
+                          width="15px"
+                          height="15px"
+                          viewBox="0 0 11.178 11.179"
+                          enable-background="new 0 0 11.178 11.179"
+                          fill="#999"
+                        >
+                          <path
+                            d="M7.989,7.031H7.485l-0.18-0.173c0.627-0.729,1.004-1.675,1.004-2.704C8.309,1.86,6.449,0,4.154,0C1.86,0,0,1.86,0,4.154 C0,6.449,1.86,8.31,4.154,8.31c1.029,0,1.975-0.377,2.704-1.004l0.173,0.178v0.506l3.195,3.189l0.952-0.952L7.989,7.031z M4.154,7.031c-1.591,0-2.876-1.285-2.876-2.877c0-1.591,1.285-2.876,2.876-2.876c1.592,0,2.876,1.285,2.876,2.876 C7.031,5.746,5.746,7.031,4.154,7.031z"
+                          ></path>
+                        </svg>
+                      </span>
+                      <input
+                        type="text"
+                        placeholder="Search from pickup locations and click to select"
+                        id="search_pickup"
+                      />
+                    </div>
+
+                    <!-- Pickup Locations List with Radio Buttons -->
+                    <div class="sc-pt-loc scroller">
+                      <!-- Pickup Item Example with Radio Button -->
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="koyambedu"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:00</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Koyambedu">Koyambedu</div>
+                          <div>Koyambedu</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="maduravoyal"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:15</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Maduravoyal">Maduravoyal</div>
+                          <div>Maduravoyal</div>
+                        </div>
+                      </label>
+
+                      <!-- Add more radio button options here -->
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="velappanchavadi"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:25</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Velappanchavadi Bus Stop">
+                            Velappanchavadi Bus Stop
+                          </div>
+                          <div>Velappanchavadi Bus Stop</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="poonamallee-bypass"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:40</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Poonamallee Bypass">
+                            Poonamallee Bypass
+                          </div>
+                          <div>Poonamallee Bypass</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="kfc-poonamalle"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:50</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="KFC, Poonamalle">KFC, Poonamalle</div>
+                          <div>KFC, Poonamalle</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="sriperumbudur"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>22:10</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Sriperumbudur">Sriperumbudur</div>
+                          <div>Sriperumbudur</div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Right Section: Button and Info -->
+                  <div class="left sc-pt-txt">
+                    <div class="sc-pt-info scroller">
+                      <button class="ty-btn new-gray pickup-btn">
+                        TAP ON pickup POINT
+                      </button>
+                      <div>Please select a pickup location<br />to proceed</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="DropOff" class="Pickup-content tabcontent">
+                  <!-- Left Section: Search and List -->
+                  <div class="sc-point left">
+                    <!-- Search Box -->
+                    <div class="sc-pt-inp">
+                      <span>
+                        <svg
+                          x="0px"
+                          y="0px"
+                          width="15px"
+                          height="15px"
+                          viewBox="0 0 11.178 11.179"
+                          enable-background="new 0 0 11.178 11.179"
+                          fill="#999"
+                        >
+                          <path
+                            d="M7.989,7.031H7.485l-0.18-0.173c0.627-0.729,1.004-1.675,1.004-2.704C8.309,1.86,6.449,0,4.154,0C1.86,0,0,1.86,0,4.154 C0,6.449,1.86,8.31,4.154,8.31c1.029,0,1.975-0.377,2.704-1.004l0.173,0.178v0.506l3.195,3.189l0.952-0.952L7.989,7.031z M4.154,7.031c-1.591,0-2.876-1.285-2.876-2.877c0-1.591,1.285-2.876,2.876-2.876c1.592,0,2.876,1.285,2.876,2.876 C7.031,5.746,5.746,7.031,4.154,7.031z"
+                          ></path>
+                        </svg>
+                      </span>
+                      <input
+                        type="text"
+                        placeholder="Search from dropoff locations and click to select"
+                        id="search_pickup"
+                      />
+                    </div>
+
+                    <!-- Pickup Locations List with Radio Buttons -->
+                    <div class="sc-pt-loc scroller">
+                      <!-- Pickup Item Example with Radio Button -->
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="dropoff-location"
+                          value="koyambedu"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:00</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Koyambedu">Koyambedu</div>
+                          <div>Koyambedu</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="dropoff-location"
+                          value="maduravoyal"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:15</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Maduravoyal">Maduravoyal</div>
+                          <div>Maduravoyal</div>
+                        </div>
+                      </label>
+
+                      <!-- Add more radio button options here -->
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="dropoff-location"
+                          value="velappanchavadi"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:25</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Velappanchavadi Bus Stop">
+                            Velappanchavadi Bus Stop
+                          </div>
+                          <div>Velappanchavadi Bus Stop</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="dropoff-location"
+                          value="poonamallee-bypass"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:40</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Poonamallee Bypass">
+                            Poonamallee Bypass
+                          </div>
+                          <div>Poonamallee Bypass</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="dropoff-location"
+                          value="kfc-poonamalle"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:50</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="KFC, Poonamalle">KFC, Poonamalle</div>
+                          <div>KFC, Poonamalle</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="dropoff-location"
+                          value="sriperumbudur"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>22:10</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Sriperumbudur">Sriperumbudur</div>
+                          <div>Sriperumbudur</div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Right Section: Button and Info -->
+                  <div class="left sc-pt-txt">
+                    <div class="sc-pt-info scroller">
+                      <button class="ty-btn new-gray dropoff-btn">
+                        TAP ON drop-off POINT
+                      </button>
+                      <div>
+                        Please select a drop-off location<br />to proceed
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <div id="PassengerInfo" class="tabcontent">
-                  Passenger Info Content...
+                  <div class="passenger-info-container">
+                    <div class="passenger-info-content">
+                      <!-- Seat Number -->
+                      <div class="seat-number">
+                        <span class="seat-badge">3B</span>
+                        <label class="seat-label">Seat No</label>
+                      </div>
+
+                      <!-- Name Input -->
+                      <div class="input-group">
+                        <label for="name">Name</label>
+                        <input
+                          type="name"
+                          id="name"
+                          placeholder="Enter your name"
+                        />
+                      </div>
+
+                      <!-- Age Input -->
+                      <div class="input-group">
+                        <label for="age">Age</label>
+                        <input
+                          type="number"
+                          id="age"
+                          placeholder="Enter your age"
+                        />
+                      </div>
+
+                      <!-- Gender Selection -->
+                      <div class="input-group gender-group">
+                        <label>Gender</label>
+                        <div class="gender-options">
+                          <input
+                            type="radio"
+                            id="male"
+                            name="gender"
+                            value="Male"
+                          />
+                          <label for="male">Male</label>
+                          <input
+                            type="radio"
+                            id="female"
+                            name="gender"
+                            value="Female"
+                          />
+                          <label for="female">Female</label>
+                        </div>
+                      </div>
+
+                      <div>
+                        <!-- Submit Button -->
+                        <button class="submit-btn">
+                          ENTER NAME, AGE, GENDER
+                        </button>
+
+                        <!-- Selected Seats Info -->
+                        <div class="seat-info">
+                          <p>You have selected 1 seat</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div id="YourInfo" class="tabcontent">Your Info Content...</div>
-                <div id="TrustScore" class="tabcontent">
-                  Trust Score Content...
+
+                <div id="YourInfo" class="tabcontent">
+                  <div class="your-info-container">
+                    <!-- Input Fields Section -->
+                    <div>
+                      <div class="input-section">
+                        <div class="mobile-number-container">
+                          <div class="country-code">+91</div>
+                          <input
+                            type="text"
+                            placeholder="Mobile Number"
+                            class="mobile-input"
+                          />
+                        </div>
+                        <input
+                          type="email"
+                          placeholder="Email ID"
+                          class="email-input"
+                        />
+                      </div>
+
+                      <!-- Note Section -->
+                      <div class="note-section">
+                        <div class="note-icon">
+                          <span>⚠️</span>
+                        </div>
+                        <div class="note-text">
+                          <p><strong>Take a note</strong></p>
+                          <ul>
+                            <li>
+                              Please provide valid mobile no. and email to be
+                              used for all future communications related to this
+                              booking.
+                            </li>
+                            <li>GST is not applicable for this operator.</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Bottom Communication Info -->
+                    <div class="communication-info">
+                      <!-- Enter Contact Info Button -->
+                      <div class="enter-contact-info">
+                        <button class="contact-info-btn">
+                          ENTER CONTACT INFO
+                        </button>
+                      </div>
+
+                      <p>
+                        All future communications regarding this trip will be
+                        sent to the email and mobile number entered above.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div id="Policies" class="tabcontent">Policies Content...</div>
+
+                <div id="Policies" class="tabcontent">
+                  <div class="policy-content">
+                    <!-- Radio Buttons for Different Cancellation Policies -->
+                    <div class="policy-options">
+                      <label class="policy-radio">
+                        <input
+                          type="radio"
+                          name="cancellation-policy"
+                          value="cancellation-policy-2"
+                        />
+                        Cancellation Policy
+                      </label>
+                    </div>
+
+                    <!-- Policy Table -->
+                    <div class="policy-table-container">
+                      <table class="policy-table">
+                        <thead>
+                          <tr>
+                            <th>Cancellation Time</th>
+                            <th>Cancellation Charges</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>From 0 to 0 hrs</td>
+                            <td>100%</td>
+                          </tr>
+                          <tr>
+                            <td>From 0 to 8 hrs</td>
+                            <td>100%</td>
+                          </tr>
+                          <tr>
+                            <td>From 8 to 12 hrs</td>
+                            <td>50%</td>
+                          </tr>
+                          <tr>
+                            <td>Before 12 hrs</td>
+                            <td>25%</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <!-- Select Seat Button on the Right -->
+                    <div class="select-seat-container">
+                      <button class="select-seat-btn">SELECT SEATS</button>
+
+                      <!-- Additional Services Section -->
+                      <div class="policy-services">
+                        <h4>Additional Travelyaari Services</h4>
+                        <p>
+                          We make alternate arrangements if bus services are
+                          canceled, or we refund up to double of your paid
+                          amount.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+
             <div class="srch-card">
               <div class="srch-top clearfix" style="padding-top: 20px">
                 <div class="label-blk" style="display: flex">
@@ -1500,24 +2053,24 @@
                     "
                   ></div>
                 </div>
-                <div class="time-pick-blk">
-                  <div class="pick-blk dark-txt">20:30</div>
+                <div class="time-pick-blk" style="display: flex">
+                  <div class="pick-blk dark-txt">18:55</div>
                   <div class="dur-blk dur">
                     <span class="dur-ln"></span
-                    ><span class="dur-txt">6:55hrs</span>
+                    ><span class="dur-txt">6:35hrs</span>
                   </div>
                   <div class="drop-blk dark-txt">18:55</div>
                 </div>
                 <div class="fare-st-blk">
-                  <div class="dark-txt">₹450</div>
+                  <div class="dark-txt">₹599</div>
                 </div>
               </div>
               <div class="srch-bottom clearfix">
-                <div class="label-blk" title="A/C, Semi Sleeper">
-                  <div>A/C, Semi Sleeper</div>
+                <div class="label-blk" title="A/C, Sleeper">
+                  <div>A/C, Sleeper</div>
                   <div style="margin: 5px 0px">
                     <img
-                      src="/websearch/images/ngBusAlt/m-ticket.b045ce45.svg"
+                      src="websearch/images/ngBusAlt/m-ticket.b045ce45.svg"
                       alt="MTicket"
                       title="MTicket"
                     />
@@ -1525,16 +2078,21 @@
                 </div>
                 <div class="time-pick-blk" style="display: flex">
                   <div class="pick-blk">
-                    <div title="Koyambedu" style="padding-bottom: 5px">
-                      Koyambedu
+                    <div title="Koyembedu" style="padding-bottom: 5px">
+                      Koyembedu
                     </div>
                     <div>
                       6+ Pickups
-                      <div class="arr-down" onclick="toggleDropdown(event)">
+                      <div
+                        class="arr-down"
+                        onclick="toggleDropdown(event)"
+                        data-tab="Pickup"
+                      >
                         <span></span>
                       </div>
                     </div>
                   </div>
+
                   <div
                     class="dur-blk"
                     style="
@@ -1546,32 +2104,630 @@
                     <div></div>
                     <div class="policy-cls">
                       Policies
-                      <div class="arr-down" onclick="toggleDropdown(event)">
+                      <div
+                        class="arr-down"
+                        onclick="toggleDropdown(event)"
+                        data-tab="Policies"
+                      >
                         <span></span>
                       </div>
                     </div>
                   </div>
                   <div class="drop-blk">
                     <div
-                      title="Attibele Toll Plaza"
+                      title="Athibele Toll plaza"
                       style="padding-bottom: 5px"
                     >
-                      Attibele Toll Plaza
+                      Athibele Toll plaza
                     </div>
                     <div>
                       8+ Drop-off
-                      <div class="arr-down" onclick="toggleDropdown(event)">
+                      <div
+                        class="arr-down"
+                        onclick="toggleDropdown(event)"
+                        data-tab="DropOff"
+                      >
                         <span></span>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="fare-st-blk">
-                  <div class="st-offr-blk">27 seats</div>
-                  <div class="ty-btn orange" id="view_chart">Select Seat</div>
+                  <div class="st-offr-blk">5 seats</div>
+                  <div
+                    class="ty-btn orange arr-down"
+                    id="view_chart"
+                    onclick="toggleDropdown(event)"
+                    data-tab="SeatChart"
+                  >
+                    Select Seat
+                  </div>
+                </div>
+              </div>
+              <div class="dropdown-content">
+                <!-- Dropdown content here (same for each card) -->
+                <!-- Close button -->
+                <span class="close-btn" onclick="closeDropdown(this)"
+                  >X Close</span
+                >
+
+                <!-- Tab Buttons -->
+                <div class="tab">
+                  <button
+                    class="search-trigger tablinks"
+                    data-tab="SeatChart"
+                    onclick="openTab(event, 'SeatChart')"
+                  >
+                    Seat Chart
+                  </button>
+                  <button
+                    class="search-trigger tablinks"
+                    data-tab="Pickup"
+                    onclick="openTab(event, 'Pickup')"
+                  >
+                    Pickup
+                  </button>
+                  <button
+                    class="search-trigger tablinks"
+                    data-tab="DropOff"
+                    onclick="openTab(event, 'DropOff')"
+                  >
+                    Drop-off
+                  </button>
+                  <button
+                    class="search-trigger tablinks"
+                    data-tab="PassengerInfo"
+                    onclick="openTab(event, 'PassengerInfo')"
+                  >
+                    Passenger Info
+                  </button>
+                  <button
+                    class="search-trigger tablinks"
+                    data-tab="YourInfo"
+                    onclick="openTab(event, 'YourInfo')"
+                  >
+                    Your Info
+                  </button>
+                  <button
+                    class="search-trigger tablinks"
+                    data-tab="Policies"
+                    onclick="openTab(event, 'Policies')"
+                  >
+                    Policies
+                  </button>
+                </div>
+
+                <!-- Tab Content -->
+                <div id="SeatChart" class="tabcontent">
+                  <div class="seat-chart-wrapper">
+                    <!-- Left: Price Filter -->
+                    <div class="price-filter">
+                      <h4>Filter by Price</h4>
+                      <input type="range" min="100" max="1000" step="50" />
+                      <p>₹100 - ₹1000</p>
+                    </div>
+
+                    <!-- Middle: Seat Chart -->
+                    <div class="seat-chart-container">
+                      <div class="seat-layout">
+                        <div class="seat-grid">
+                          <!-- Repeatable seat elements -->
+                          <div class="seat normal" data-price="380">₹380</div>
+                          <div class="seat sold">Sold</div>
+                          <div class="seat normal" data-price="580">₹580</div>
+                          <div class="seat normal" data-price="380">₹380</div>
+                          <div class="seat normal" data-price="780">₹780</div>
+                          <div class="seat normal" data-price="980">₹980</div>
+                          <!-- Add as many seat elements as necessary -->
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Right: Fare Summary -->
+                    <div class="fare-summary">
+                      <button class="select-seat-btn">TAP ON SEAT</button>
+                      <p>₹0 cashback as TYCoins will be added</p>
+                      <h4>Fare Summary</h4>
+                      <div class="fare-details">
+                        <p>Base fare: ₹<span id="baseFare">0</span></p>
+                        <p>TYCoins redeemed: ₹<span>0</span></p>
+                        <p>Operator discount: ₹<span>0</span></p>
+                        <p>Final Price: ₹<span id="finalPrice">0</span></p>
+                      </div>
+                      <!-- Seat Legend -->
+                      <div class="legend">
+                        <span
+                          ><span class="seat-legend normal"></span>Normal</span
+                        >
+                        <span
+                          ><span class="seat-legend female"></span>Female</span
+                        >
+                        <span><span class="seat-legend male"></span>Male</span>
+                        <span><span class="seat-legend sold"></span>Sold</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  id="Pickup"
+                  class="Pickup-content tabcontent"
+                  style="display: block"
+                >
+                  <!-- Left Section: Search and List -->
+                  <div class="sc-point left">
+                    <!-- Search Box -->
+                    <div class="sc-pt-inp">
+                      <span>
+                        <svg
+                          x="0px"
+                          y="0px"
+                          width="15px"
+                          height="15px"
+                          viewBox="0 0 11.178 11.179"
+                          enable-background="new 0 0 11.178 11.179"
+                          fill="#999"
+                        >
+                          <path
+                            d="M7.989,7.031H7.485l-0.18-0.173c0.627-0.729,1.004-1.675,1.004-2.704C8.309,1.86,6.449,0,4.154,0C1.86,0,0,1.86,0,4.154 C0,6.449,1.86,8.31,4.154,8.31c1.029,0,1.975-0.377,2.704-1.004l0.173,0.178v0.506l3.195,3.189l0.952-0.952L7.989,7.031z M4.154,7.031c-1.591,0-2.876-1.285-2.876-2.877c0-1.591,1.285-2.876,2.876-2.876c1.592,0,2.876,1.285,2.876,2.876 C7.031,5.746,5.746,7.031,4.154,7.031z"
+                          ></path>
+                        </svg>
+                      </span>
+                      <input
+                        type="text"
+                        placeholder="Search from pickup locations and click to select"
+                        id="search_pickup"
+                      />
+                    </div>
+
+                    <!-- Pickup Locations List with Radio Buttons -->
+                    <div class="sc-pt-loc scroller">
+                      <!-- Pickup Item Example with Radio Button -->
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="koyambedu"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:00</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Koyambedu">Koyambedu</div>
+                          <div>Koyambedu</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="maduravoyal"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:15</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Maduravoyal">Maduravoyal</div>
+                          <div>Maduravoyal</div>
+                        </div>
+                      </label>
+
+                      <!-- Add more radio button options here -->
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="velappanchavadi"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:25</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Velappanchavadi Bus Stop">
+                            Velappanchavadi Bus Stop
+                          </div>
+                          <div>Velappanchavadi Bus Stop</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="poonamallee-bypass"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:40</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Poonamallee Bypass">
+                            Poonamallee Bypass
+                          </div>
+                          <div>Poonamallee Bypass</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="kfc-poonamalle"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:50</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="KFC, Poonamalle">KFC, Poonamalle</div>
+                          <div>KFC, Poonamalle</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="sriperumbudur"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>22:10</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Sriperumbudur">Sriperumbudur</div>
+                          <div>Sriperumbudur</div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Right Section: Button and Info -->
+                  <div class="left sc-pt-txt">
+                    <div class="sc-pt-info scroller">
+                      <button class="ty-btn new-gray pickup-btn">
+                        TAP ON pickup POINT
+                      </button>
+                      <div>Please select a pickup location<br />to proceed</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="DropOff" class="Pickup-content tabcontent">
+                  <!-- Left Section: Search and List -->
+                  <div class="sc-point left">
+                    <!-- Search Box -->
+                    <div class="sc-pt-inp">
+                      <span>
+                        <svg
+                          x="0px"
+                          y="0px"
+                          width="15px"
+                          height="15px"
+                          viewBox="0 0 11.178 11.179"
+                          enable-background="new 0 0 11.178 11.179"
+                          fill="#999"
+                        >
+                          <path
+                            d="M7.989,7.031H7.485l-0.18-0.173c0.627-0.729,1.004-1.675,1.004-2.704C8.309,1.86,6.449,0,4.154,0C1.86,0,0,1.86,0,4.154 C0,6.449,1.86,8.31,4.154,8.31c1.029,0,1.975-0.377,2.704-1.004l0.173,0.178v0.506l3.195,3.189l0.952-0.952L7.989,7.031z M4.154,7.031c-1.591,0-2.876-1.285-2.876-2.877c0-1.591,1.285-2.876,2.876-2.876c1.592,0,2.876,1.285,2.876,2.876 C7.031,5.746,5.746,7.031,4.154,7.031z"
+                          ></path>
+                        </svg>
+                      </span>
+                      <input
+                        type="text"
+                        placeholder="Search from dropoff locations and click to select"
+                        id="search_pickup"
+                      />
+                    </div>
+
+                    <!-- Pickup Locations List with Radio Buttons -->
+                    <div class="sc-pt-loc scroller">
+                      <!-- Pickup Item Example with Radio Button -->
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="dropoff-location"
+                          value="koyambedu"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:00</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Koyambedu">Koyambedu</div>
+                          <div>Koyambedu</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="dropoff-location"
+                          value="maduravoyal"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:15</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Maduravoyal">Maduravoyal</div>
+                          <div>Maduravoyal</div>
+                        </div>
+                      </label>
+
+                      <!-- Add more radio button options here -->
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="dropoff-location"
+                          value="velappanchavadi"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:25</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Velappanchavadi Bus Stop">
+                            Velappanchavadi Bus Stop
+                          </div>
+                          <div>Velappanchavadi Bus Stop</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="dropoff-location"
+                          value="poonamallee-bypass"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:40</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Poonamallee Bypass">
+                            Poonamallee Bypass
+                          </div>
+                          <div>Poonamallee Bypass</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="dropoff-location"
+                          value="kfc-poonamalle"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:50</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="KFC, Poonamalle">KFC, Poonamalle</div>
+                          <div>KFC, Poonamalle</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="dropoff-location"
+                          value="sriperumbudur"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>22:10</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Sriperumbudur">Sriperumbudur</div>
+                          <div>Sriperumbudur</div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Right Section: Button and Info -->
+                  <div class="left sc-pt-txt">
+                    <div class="sc-pt-info scroller">
+                      <button class="ty-btn new-gray dropoff-btn">
+                        TAP ON drop-off POINT
+                      </button>
+                      <div>
+                        Please select a drop-off location<br />to proceed
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="PassengerInfo" class="tabcontent">
+                  <div class="passenger-info-container">
+                    <div class="passenger-info-content">
+                      <!-- Seat Number -->
+                      <div class="seat-number">
+                        <span class="seat-badge">3B</span>
+                        <label class="seat-label">Seat No</label>
+                      </div>
+
+                      <!-- Name Input -->
+                      <div class="input-group">
+                        <label for="name">Name</label>
+                        <input
+                          type="name"
+                          id="name"
+                          placeholder="Enter your name"
+                        />
+                      </div>
+
+                      <!-- Age Input -->
+                      <div class="input-group">
+                        <label for="age">Age</label>
+                        <input
+                          type="number"
+                          id="age"
+                          placeholder="Enter your age"
+                        />
+                      </div>
+
+                      <!-- Gender Selection -->
+                      <div class="input-group gender-group">
+                        <label>Gender</label>
+                        <div class="gender-options">
+                          <input
+                            type="radio"
+                            id="male"
+                            name="gender"
+                            value="Male"
+                          />
+                          <label for="male">Male</label>
+                          <input
+                            type="radio"
+                            id="female"
+                            name="gender"
+                            value="Female"
+                          />
+                          <label for="female">Female</label>
+                        </div>
+                      </div>
+
+                      <div>
+                        <!-- Submit Button -->
+                        <button class="submit-btn">
+                          ENTER NAME, AGE, GENDER
+                        </button>
+
+                        <!-- Selected Seats Info -->
+                        <div class="seat-info">
+                          <p>You have selected 1 seat</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="YourInfo" class="tabcontent">
+                  <div class="your-info-container">
+                    <!-- Input Fields Section -->
+                    <div>
+                      <div class="input-section">
+                        <div class="mobile-number-container">
+                          <div class="country-code">+91</div>
+                          <input
+                            type="text"
+                            placeholder="Mobile Number"
+                            class="mobile-input"
+                          />
+                        </div>
+                        <input
+                          type="email"
+                          placeholder="Email ID"
+                          class="email-input"
+                        />
+                      </div>
+
+                      <!-- Note Section -->
+                      <div class="note-section">
+                        <div class="note-icon">
+                          <span>⚠️</span>
+                        </div>
+                        <div class="note-text">
+                          <p><strong>Take a note</strong></p>
+                          <ul>
+                            <li>
+                              Please provide valid mobile no. and email to be
+                              used for all future communications related to this
+                              booking.
+                            </li>
+                            <li>GST is not applicable for this operator.</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Bottom Communication Info -->
+                    <div class="communication-info">
+                      <!-- Enter Contact Info Button -->
+                      <div class="enter-contact-info">
+                        <button class="contact-info-btn">
+                          ENTER CONTACT INFO
+                        </button>
+                      </div>
+
+                      <p>
+                        All future communications regarding this trip will be
+                        sent to the email and mobile number entered above.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="Policies" class="tabcontent">
+                  <div class="policy-content">
+                    <!-- Radio Buttons for Different Cancellation Policies -->
+                    <div class="policy-options">
+                      <label class="policy-radio">
+                        <input
+                          type="radio"
+                          name="cancellation-policy"
+                          value="cancellation-policy-2"
+                        />
+                        Cancellation Policy
+                      </label>
+                    </div>
+
+                    <!-- Policy Table -->
+                    <div class="policy-table-container">
+                      <table class="policy-table">
+                        <thead>
+                          <tr>
+                            <th>Cancellation Time</th>
+                            <th>Cancellation Charges</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>From 0 to 0 hrs</td>
+                            <td>100%</td>
+                          </tr>
+                          <tr>
+                            <td>From 0 to 8 hrs</td>
+                            <td>100%</td>
+                          </tr>
+                          <tr>
+                            <td>From 8 to 12 hrs</td>
+                            <td>50%</td>
+                          </tr>
+                          <tr>
+                            <td>Before 12 hrs</td>
+                            <td>25%</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <!-- Select Seat Button on the Right -->
+                    <div class="select-seat-container">
+                      <button class="select-seat-btn">SELECT SEATS</button>
+
+                      <!-- Additional Services Section -->
+                      <div class="policy-services">
+                        <h4>Additional Travelyaari Services</h4>
+                        <p>
+                          We make alternate arrangements if bus services are
+                          canceled, or we refund up to double of your paid
+                          amount.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+
+
             <div class="srch-card">
               <div class="srch-top clearfix" style="padding-top: 20px">
                 <div class="label-blk" style="display: flex">
@@ -1591,13 +2747,13 @@
                     "
                   ></div>
                 </div>
-                <div class="time-pick-blk">
+                <div class="time-pick-blk" style="display: flex">
                   <div class="pick-blk dark-txt">21:00</div>
                   <div class="dur-blk dur">
                     <span class="dur-ln"></span
                     ><span class="dur-txt">9:00hrs</span>
                   </div>
-                  <div class="drop-blk dark-txt">18:55</div>
+                  <div class="drop-blk dark-txt">21:00</div>
                 </div>
                 <div class="fare-st-blk">
                   <div class="dark-txt">₹390</div>
@@ -1628,16 +2784,22 @@
                 </div>
                 <div class="time-pick-blk" style="display: flex">
                   <div class="pick-blk">
-                    <div title="Sri Perumbudur" style="padding-bottom: 5px">
+                    <div title="Koyembedu" style="padding-bottom: 5px">
                       Sri Perumbudur
+
                     </div>
                     <div>
                       19+ Pickups
-                      <div class="arr-down" onclick="toggleDropdown(event)">
+                      <div
+                        class="arr-down"
+                        onclick="toggleDropdown(event)"
+                        data-tab="Pickup"
+                      >
                         <span></span>
                       </div>
                     </div>
                   </div>
+
                   <div
                     class="dur-blk"
                     style="
@@ -1649,21 +2811,29 @@
                     <div></div>
                     <div class="policy-cls">
                       Policies
-                      <div class="arr-down" onclick="toggleDropdown(event)">
+                      <div
+                        class="arr-down"
+                        onclick="toggleDropdown(event)"
+                        data-tab="Policies"
+                      >
                         <span></span>
                       </div>
                     </div>
                   </div>
                   <div class="drop-blk">
                     <div
-                      title="Attibele Toll Plaza"
+                      title="Athibele Toll plaza"
                       style="padding-bottom: 5px"
                     >
-                      Attibele Toll Plaza
+                      Athibele Toll plaza
                     </div>
                     <div>
                       8+ Drop-off
-                      <div class="arr-down" onclick="toggleDropdown(event)">
+                      <div
+                        class="arr-down"
+                        onclick="toggleDropdown(event)"
+                        data-tab="DropOff"
+                      >
                         <span></span>
                       </div>
                     </div>
@@ -1671,10 +2841,601 @@
                 </div>
                 <div class="fare-st-blk">
                   <div class="st-offr-blk">27 seats</div>
-                  <div class="ty-btn orange" id="view_chart">Select Seat</div>
+                  <div
+                    class="ty-btn orange arr-down"
+                    id="view_chart"
+                    onclick="toggleDropdown(event)"
+                    data-tab="SeatChart"
+                  >
+                    Select Seat
+                  </div>
+                </div>
+              </div>
+              <div class="dropdown-content">
+                <!-- Dropdown content here (same for each card) -->
+                <!-- Close button -->
+                <span class="close-btn" onclick="closeDropdown(this)"
+                  >X Close</span
+                >
+
+                <!-- Tab Buttons -->
+                <div class="tab">
+                  <button
+                    class="search-trigger tablinks"
+                    data-tab="SeatChart"
+                    onclick="openTab(event, 'SeatChart')"
+                  >
+                    Seat Chart
+                  </button>
+                  <button
+                    class="search-trigger tablinks"
+                    data-tab="Pickup"
+                    onclick="openTab(event, 'Pickup')"
+                  >
+                    Pickup
+                  </button>
+                  <button
+                    class="search-trigger tablinks"
+                    data-tab="DropOff"
+                    onclick="openTab(event, 'DropOff')"
+                  >
+                    Drop-off
+                  </button>
+                  <button
+                    class="search-trigger tablinks"
+                    data-tab="PassengerInfo"
+                    onclick="openTab(event, 'PassengerInfo')"
+                  >
+                    Passenger Info
+                  </button>
+                  <button
+                    class="search-trigger tablinks"
+                    data-tab="YourInfo"
+                    onclick="openTab(event, 'YourInfo')"
+                  >
+                    Your Info
+                  </button>
+                  <button
+                    class="search-trigger tablinks"
+                    data-tab="Policies"
+                    onclick="openTab(event, 'Policies')"
+                  >
+                    Policies
+                  </button>
+                </div>
+
+                <!-- Tab Content -->
+                <div id="SeatChart" class="tabcontent">
+                  <div class="seat-chart-wrapper">
+                    <!-- Left: Price Filter -->
+                    <div class="price-filter">
+                      <h4>Filter by Price</h4>
+                      <input type="range" min="100" max="1000" step="50" />
+                      <p>₹100 - ₹1000</p>
+                    </div>
+
+                    <!-- Middle: Seat Chart -->
+                    <div class="seat-chart-container">
+                      <div class="seat-layout">
+                        <div class="seat-grid">
+                          <!-- Repeatable seat elements -->
+                          <div class="seat normal" data-price="380">₹380</div>
+                          <div class="seat sold">Sold</div>
+                          <div class="seat normal" data-price="580">₹580</div>
+                          <div class="seat normal" data-price="380">₹380</div>
+                          <div class="seat normal" data-price="780">₹780</div>
+                          <div class="seat normal" data-price="980">₹980</div>
+                          <!-- Add as many seat elements as necessary -->
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Right: Fare Summary -->
+                    <div class="fare-summary">
+                      <button class="select-seat-btn">TAP ON SEAT</button>
+                      <p>₹0 cashback as TYCoins will be added</p>
+                      <h4>Fare Summary</h4>
+                      <div class="fare-details">
+                        <p>Base fare: ₹<span id="baseFare">0</span></p>
+                        <p>TYCoins redeemed: ₹<span>0</span></p>
+                        <p>Operator discount: ₹<span>0</span></p>
+                        <p>Final Price: ₹<span id="finalPrice">0</span></p>
+                      </div>
+                      <!-- Seat Legend -->
+                      <div class="legend">
+                        <span
+                          ><span class="seat-legend normal"></span>Normal</span
+                        >
+                        <span
+                          ><span class="seat-legend female"></span>Female</span
+                        >
+                        <span><span class="seat-legend male"></span>Male</span>
+                        <span><span class="seat-legend sold"></span>Sold</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  id="Pickup"
+                  class="Pickup-content tabcontent"
+                  style="display: block"
+                >
+                  <!-- Left Section: Search and List -->
+                  <div class="sc-point left">
+                    <!-- Search Box -->
+                    <div class="sc-pt-inp">
+                      <span>
+                        <svg
+                          x="0px"
+                          y="0px"
+                          width="15px"
+                          height="15px"
+                          viewBox="0 0 11.178 11.179"
+                          enable-background="new 0 0 11.178 11.179"
+                          fill="#999"
+                        >
+                          <path
+                            d="M7.989,7.031H7.485l-0.18-0.173c0.627-0.729,1.004-1.675,1.004-2.704C8.309,1.86,6.449,0,4.154,0C1.86,0,0,1.86,0,4.154 C0,6.449,1.86,8.31,4.154,8.31c1.029,0,1.975-0.377,2.704-1.004l0.173,0.178v0.506l3.195,3.189l0.952-0.952L7.989,7.031z M4.154,7.031c-1.591,0-2.876-1.285-2.876-2.877c0-1.591,1.285-2.876,2.876-2.876c1.592,0,2.876,1.285,2.876,2.876 C7.031,5.746,5.746,7.031,4.154,7.031z"
+                          ></path>
+                        </svg>
+                      </span>
+                      <input
+                        type="text"
+                        placeholder="Search from pickup locations and click to select"
+                        id="search_pickup"
+                      />
+                    </div>
+
+                    <!-- Pickup Locations List with Radio Buttons -->
+                    <div class="sc-pt-loc scroller">
+                      <!-- Pickup Item Example with Radio Button -->
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="koyambedu"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:00</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Koyambedu">Koyambedu</div>
+                          <div>Koyambedu</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="maduravoyal"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:15</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Maduravoyal">Maduravoyal</div>
+                          <div>Maduravoyal</div>
+                        </div>
+                      </label>
+
+                      <!-- Add more radio button options here -->
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="velappanchavadi"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:25</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Velappanchavadi Bus Stop">
+                            Velappanchavadi Bus Stop
+                          </div>
+                          <div>Velappanchavadi Bus Stop</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="poonamallee-bypass"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:40</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Poonamallee Bypass">
+                            Poonamallee Bypass
+                          </div>
+                          <div>Poonamallee Bypass</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="kfc-poonamalle"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:50</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="KFC, Poonamalle">KFC, Poonamalle</div>
+                          <div>KFC, Poonamalle</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="sriperumbudur"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>22:10</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Sriperumbudur">Sriperumbudur</div>
+                          <div>Sriperumbudur</div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Right Section: Button and Info -->
+                  <div class="left sc-pt-txt">
+                    <div class="sc-pt-info scroller">
+                      <button class="ty-btn new-gray pickup-btn">
+                        TAP ON pickup POINT
+                      </button>
+                      <div>Please select a pickup location<br />to proceed</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="DropOff" class="Pickup-content tabcontent">
+                  <!-- Left Section: Search and List -->
+                  <div class="sc-point left">
+                    <!-- Search Box -->
+                    <div class="sc-pt-inp">
+                      <span>
+                        <svg
+                          x="0px"
+                          y="0px"
+                          width="15px"
+                          height="15px"
+                          viewBox="0 0 11.178 11.179"
+                          enable-background="new 0 0 11.178 11.179"
+                          fill="#999"
+                        >
+                          <path
+                            d="M7.989,7.031H7.485l-0.18-0.173c0.627-0.729,1.004-1.675,1.004-2.704C8.309,1.86,6.449,0,4.154,0C1.86,0,0,1.86,0,4.154 C0,6.449,1.86,8.31,4.154,8.31c1.029,0,1.975-0.377,2.704-1.004l0.173,0.178v0.506l3.195,3.189l0.952-0.952L7.989,7.031z M4.154,7.031c-1.591,0-2.876-1.285-2.876-2.877c0-1.591,1.285-2.876,2.876-2.876c1.592,0,2.876,1.285,2.876,2.876 C7.031,5.746,5.746,7.031,4.154,7.031z"
+                          ></path>
+                        </svg>
+                      </span>
+                      <input
+                        type="text"
+                        placeholder="Search from dropoff locations and click to select"
+                        id="search_pickup"
+                      />
+                    </div>
+
+                    <!-- Pickup Locations List with Radio Buttons -->
+                    <div class="sc-pt-loc scroller">
+                      <!-- Pickup Item Example with Radio Button -->
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="dropoff-location"
+                          value="koyambedu"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:00</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Koyambedu">Koyambedu</div>
+                          <div>Koyambedu</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="dropoff-location"
+                          value="maduravoyal"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:15</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Maduravoyal">Maduravoyal</div>
+                          <div>Maduravoyal</div>
+                        </div>
+                      </label>
+
+                      <!-- Add more radio button options here -->
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="dropoff-location"
+                          value="velappanchavadi"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:25</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Velappanchavadi Bus Stop">
+                            Velappanchavadi Bus Stop
+                          </div>
+                          <div>Velappanchavadi Bus Stop</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="dropoff-location"
+                          value="poonamallee-bypass"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:40</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Poonamallee Bypass">
+                            Poonamallee Bypass
+                          </div>
+                          <div>Poonamallee Bypass</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="dropoff-location"
+                          value="kfc-poonamalle"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:50</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="KFC, Poonamalle">KFC, Poonamalle</div>
+                          <div>KFC, Poonamalle</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="dropoff-location"
+                          value="sriperumbudur"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>22:10</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Sriperumbudur">Sriperumbudur</div>
+                          <div>Sriperumbudur</div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Right Section: Button and Info -->
+                  <div class="left sc-pt-txt">
+                    <div class="sc-pt-info scroller">
+                      <button class="ty-btn new-gray dropoff-btn">
+                        TAP ON drop-off POINT
+                      </button>
+                      <div>
+                        Please select a drop-off location<br />to proceed
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="PassengerInfo" class="tabcontent">
+                  <div class="passenger-info-container">
+                    <div class="passenger-info-content">
+                      <!-- Seat Number -->
+                      <div class="seat-number">
+                        <span class="seat-badge">3B</span>
+                        <label class="seat-label">Seat No</label>
+                      </div>
+
+                      <!-- Name Input -->
+                      <div class="input-group">
+                        <label for="name">Name</label>
+                        <input
+                          type="name"
+                          id="name"
+                          placeholder="Enter your name"
+                        />
+                      </div>
+
+                      <!-- Age Input -->
+                      <div class="input-group">
+                        <label for="age">Age</label>
+                        <input
+                          type="number"
+                          id="age"
+                          placeholder="Enter your age"
+                        />
+                      </div>
+
+                      <!-- Gender Selection -->
+                      <div class="input-group gender-group">
+                        <label>Gender</label>
+                        <div class="gender-options">
+                          <input
+                            type="radio"
+                            id="male"
+                            name="gender"
+                            value="Male"
+                          />
+                          <label for="male">Male</label>
+                          <input
+                            type="radio"
+                            id="female"
+                            name="gender"
+                            value="Female"
+                          />
+                          <label for="female">Female</label>
+                        </div>
+                      </div>
+
+                      <div>
+                        <!-- Submit Button -->
+                        <button class="submit-btn">
+                          ENTER NAME, AGE, GENDER
+                        </button>
+
+                        <!-- Selected Seats Info -->
+                        <div class="seat-info">
+                          <p>You have selected 1 seat</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="YourInfo" class="tabcontent">
+                  <div class="your-info-container">
+                    <!-- Input Fields Section -->
+                    <div>
+                      <div class="input-section">
+                        <div class="mobile-number-container">
+                          <div class="country-code">+91</div>
+                          <input
+                            type="text"
+                            placeholder="Mobile Number"
+                            class="mobile-input"
+                          />
+                        </div>
+                        <input
+                          type="email"
+                          placeholder="Email ID"
+                          class="email-input"
+                        />
+                      </div>
+
+                      <!-- Note Section -->
+                      <div class="note-section">
+                        <div class="note-icon">
+                          <span>⚠️</span>
+                        </div>
+                        <div class="note-text">
+                          <p><strong>Take a note</strong></p>
+                          <ul>
+                            <li>
+                              Please provide valid mobile no. and email to be
+                              used for all future communications related to this
+                              booking.
+                            </li>
+                            <li>GST is not applicable for this operator.</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Bottom Communication Info -->
+                    <div class="communication-info">
+                      <!-- Enter Contact Info Button -->
+                      <div class="enter-contact-info">
+                        <button class="contact-info-btn">
+                          ENTER CONTACT INFO
+                        </button>
+                      </div>
+
+                      <p>
+                        All future communications regarding this trip will be
+                        sent to the email and mobile number entered above.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="Policies" class="tabcontent">
+                  <div class="policy-content">
+                    <!-- Radio Buttons for Different Cancellation Policies -->
+                    <div class="policy-options">
+                      <label class="policy-radio">
+                        <input
+                          type="radio"
+                          name="cancellation-policy"
+                          value="cancellation-policy-2"
+                        />
+                        Cancellation Policy
+                      </label>
+                    </div>
+
+                    <!-- Policy Table -->
+                    <div class="policy-table-container">
+                      <table class="policy-table">
+                        <thead>
+                          <tr>
+                            <th>Cancellation Time</th>
+                            <th>Cancellation Charges</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>From 0 to 0 hrs</td>
+                            <td>100%</td>
+                          </tr>
+                          <tr>
+                            <td>From 0 to 8 hrs</td>
+                            <td>100%</td>
+                          </tr>
+                          <tr>
+                            <td>From 8 to 12 hrs</td>
+                            <td>50%</td>
+                          </tr>
+                          <tr>
+                            <td>Before 12 hrs</td>
+                            <td>25%</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <!-- Select Seat Button on the Right -->
+                    <div class="select-seat-container">
+                      <button class="select-seat-btn">SELECT SEATS</button>
+
+                      <!-- Additional Services Section -->
+                      <div class="policy-services">
+                        <h4>Additional Travelyaari Services</h4>
+                        <p>
+                          We make alternate arrangements if bus services are
+                          canceled, or we refund up to double of your paid
+                          amount.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
+
+           
+
             <div class="srch-card">
               <div class="srch-top clearfix" style="padding-top: 20px">
                 <div class="label-blk" style="display: flex">
@@ -1694,21 +3455,21 @@
                     "
                   ></div>
                 </div>
-                <div class="time-pick-blk">
-                  <div class="pick-blk dark-txt">21:00</div>
+                <div class="time-pick-blk" style="display: flex">
+                  <div class="pick-blk dark-txt">18:55</div>
                   <div class="dur-blk dur">
                     <span class="dur-ln"></span
-                    ><span class="dur-txt">7:40hrs</span>
+                    ><span class="dur-txt">6:35hrs</span>
                   </div>
                   <div class="drop-blk dark-txt">18:55</div>
                 </div>
                 <div class="fare-st-blk">
-                  <div class="dark-txt">₹450</div>
+                  <div class="dark-txt">₹599</div>
                 </div>
               </div>
               <div class="srch-bottom clearfix">
-                <div class="label-blk" title="A/C, Semi Sleeper">
-                  <div>A/C, Semi Sleeper</div>
+                <div class="label-blk" title="A/C, Sleeper">
+                  <div>A/C, Sleeper</div>
                   <div style="margin: 5px 0px">
                     <img
                       src="websearch/images/ngBusAlt/m-ticket.b045ce45.svg"
@@ -1719,16 +3480,21 @@
                 </div>
                 <div class="time-pick-blk" style="display: flex">
                   <div class="pick-blk">
-                    <div title="Koyambedu" style="padding-bottom: 5px">
-                      Koyambedu
+                    <div title="Koyembedu" style="padding-bottom: 5px">
+                      Koyembedu
                     </div>
                     <div>
                       6+ Pickups
-                      <div class="arr-down" onclick="toggleDropdown(event)">
+                      <div
+                        class="arr-down"
+                        onclick="toggleDropdown(event)"
+                        data-tab="Pickup"
+                      >
                         <span></span>
                       </div>
                     </div>
                   </div>
+
                   <div
                     class="dur-blk"
                     style="
@@ -1740,26 +3506,625 @@
                     <div></div>
                     <div class="policy-cls">
                       Policies
-                      <div class="arr-down" onclick="toggleDropdown(event)">
+                      <div
+                        class="arr-down"
+                        onclick="toggleDropdown(event)"
+                        data-tab="Policies"
+                      >
                         <span></span>
                       </div>
                     </div>
                   </div>
                   <div class="drop-blk">
-                    <div title="Hoskote Toll" style="padding-bottom: 5px">
-                      Hoskote Toll
+                    <div
+                      title="Athibele Toll plaza"
+                      style="padding-bottom: 5px"
+                    >
+                      Athibele Toll plaza
                     </div>
                     <div>
-                      12+ Drop-off
-                      <div class="arr-down" onclick="toggleDropdown(event)">
+                      8+ Drop-off
+                      <div
+                        class="arr-down"
+                        onclick="toggleDropdown(event)"
+                        data-tab="DropOff"
+                      >
                         <span></span>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div class="fare-st-blk">
-                  <div class="st-offr-blk">31 seats</div>
-                  <div class="ty-btn orange" id="view_chart">Select Seat</div>
+                  <div class="st-offr-blk">5 seats</div>
+                  <div
+                    class="ty-btn orange arr-down"
+                    id="view_chart"
+                    onclick="toggleDropdown(event)"
+                    data-tab="SeatChart"
+                  >
+                    Select Seat
+                  </div>
+                </div>
+              </div>
+              <div class="dropdown-content">
+                <!-- Dropdown content here (same for each card) -->
+                <!-- Close button -->
+                <span class="close-btn" onclick="closeDropdown(this)"
+                  >X Close</span
+                >
+
+                <!-- Tab Buttons -->
+                <div class="tab">
+                  <button
+                    class="search-trigger tablinks"
+                    data-tab="SeatChart"
+                    onclick="openTab(event, 'SeatChart')"
+                  >
+                    Seat Chart
+                  </button>
+                  <button
+                    class="search-trigger tablinks"
+                    data-tab="Pickup"
+                    onclick="openTab(event, 'Pickup')"
+                  >
+                    Pickup
+                  </button>
+                  <button
+                    class="search-trigger tablinks"
+                    data-tab="DropOff"
+                    onclick="openTab(event, 'DropOff')"
+                  >
+                    Drop-off
+                  </button>
+                  <button
+                    class="search-trigger tablinks"
+                    data-tab="PassengerInfo"
+                    onclick="openTab(event, 'PassengerInfo')"
+                  >
+                    Passenger Info
+                  </button>
+                  <button
+                    class="search-trigger tablinks"
+                    data-tab="YourInfo"
+                    onclick="openTab(event, 'YourInfo')"
+                  >
+                    Your Info
+                  </button>
+                  <button
+                    class="search-trigger tablinks"
+                    data-tab="Policies"
+                    onclick="openTab(event, 'Policies')"
+                  >
+                    Policies
+                  </button>
+                </div>
+
+                <!-- Tab Content -->
+                <div id="SeatChart" class="tabcontent">
+                  <div class="seat-chart-wrapper">
+                    <!-- Left: Price Filter -->
+                    <div class="price-filter">
+                      <h4>Filter by Price</h4>
+                      <input type="range" min="100" max="1000" step="50" />
+                      <p>₹100 - ₹1000</p>
+                    </div>
+
+                    <!-- Middle: Seat Chart -->
+                    <div class="seat-chart-container">
+                      <div class="seat-layout">
+                        <div class="seat-grid">
+                          <!-- Repeatable seat elements -->
+                          <div class="seat normal" data-price="380">₹380</div>
+                          <div class="seat sold">Sold</div>
+                          <div class="seat normal" data-price="580">₹580</div>
+                          <div class="seat normal" data-price="380">₹380</div>
+                          <div class="seat normal" data-price="780">₹780</div>
+                          <div class="seat normal" data-price="980">₹980</div>
+                          <!-- Add as many seat elements as necessary -->
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Right: Fare Summary -->
+                    <div class="fare-summary">
+                      <button class="select-seat-btn">TAP ON SEAT</button>
+                      <p>₹0 cashback as TYCoins will be added</p>
+                      <h4>Fare Summary</h4>
+                      <div class="fare-details">
+                        <p>Base fare: ₹<span id="baseFare">0</span></p>
+                        <p>TYCoins redeemed: ₹<span>0</span></p>
+                        <p>Operator discount: ₹<span>0</span></p>
+                        <p>Final Price: ₹<span id="finalPrice">0</span></p>
+                      </div>
+                      <!-- Seat Legend -->
+                      <div class="legend">
+                        <span
+                          ><span class="seat-legend normal"></span>Normal</span
+                        >
+                        <span
+                          ><span class="seat-legend female"></span>Female</span
+                        >
+                        <span><span class="seat-legend male"></span>Male</span>
+                        <span><span class="seat-legend sold"></span>Sold</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  id="Pickup"
+                  class="Pickup-content tabcontent"
+                  style="display: block"
+                >
+                  <!-- Left Section: Search and List -->
+                  <div class="sc-point left">
+                    <!-- Search Box -->
+                    <div class="sc-pt-inp">
+                      <span>
+                        <svg
+                          x="0px"
+                          y="0px"
+                          width="15px"
+                          height="15px"
+                          viewBox="0 0 11.178 11.179"
+                          enable-background="new 0 0 11.178 11.179"
+                          fill="#999"
+                        >
+                          <path
+                            d="M7.989,7.031H7.485l-0.18-0.173c0.627-0.729,1.004-1.675,1.004-2.704C8.309,1.86,6.449,0,4.154,0C1.86,0,0,1.86,0,4.154 C0,6.449,1.86,8.31,4.154,8.31c1.029,0,1.975-0.377,2.704-1.004l0.173,0.178v0.506l3.195,3.189l0.952-0.952L7.989,7.031z M4.154,7.031c-1.591,0-2.876-1.285-2.876-2.877c0-1.591,1.285-2.876,2.876-2.876c1.592,0,2.876,1.285,2.876,2.876 C7.031,5.746,5.746,7.031,4.154,7.031z"
+                          ></path>
+                        </svg>
+                      </span>
+                      <input
+                        type="text"
+                        placeholder="Search from pickup locations and click to select"
+                        id="search_pickup"
+                      />
+                    </div>
+
+                    <!-- Pickup Locations List with Radio Buttons -->
+                    <div class="sc-pt-loc scroller">
+                      <!-- Pickup Item Example with Radio Button -->
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="koyambedu"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:00</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Koyambedu">Koyambedu</div>
+                          <div>Koyambedu</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="maduravoyal"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:15</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Maduravoyal">Maduravoyal</div>
+                          <div>Maduravoyal</div>
+                        </div>
+                      </label>
+
+                      <!-- Add more radio button options here -->
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="velappanchavadi"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:25</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Velappanchavadi Bus Stop">
+                            Velappanchavadi Bus Stop
+                          </div>
+                          <div>Velappanchavadi Bus Stop</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="poonamallee-bypass"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:40</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Poonamallee Bypass">
+                            Poonamallee Bypass
+                          </div>
+                          <div>Poonamallee Bypass</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="kfc-poonamalle"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:50</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="KFC, Poonamalle">KFC, Poonamalle</div>
+                          <div>KFC, Poonamalle</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="pickup-location"
+                          value="sriperumbudur"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>22:10</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Sriperumbudur">Sriperumbudur</div>
+                          <div>Sriperumbudur</div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Right Section: Button and Info -->
+                  <div class="left sc-pt-txt">
+                    <div class="sc-pt-info scroller">
+                      <button class="ty-btn new-gray pickup-btn">
+                        TAP ON pickup POINT
+                      </button>
+                      <div>Please select a pickup location<br />to proceed</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="DropOff" class="Pickup-content tabcontent">
+                  <!-- Left Section: Search and List -->
+                  <div class="sc-point left">
+                    <!-- Search Box -->
+                    <div class="sc-pt-inp">
+                      <span>
+                        <svg
+                          x="0px"
+                          y="0px"
+                          width="15px"
+                          height="15px"
+                          viewBox="0 0 11.178 11.179"
+                          enable-background="new 0 0 11.178 11.179"
+                          fill="#999"
+                        >
+                          <path
+                            d="M7.989,7.031H7.485l-0.18-0.173c0.627-0.729,1.004-1.675,1.004-2.704C8.309,1.86,6.449,0,4.154,0C1.86,0,0,1.86,0,4.154 C0,6.449,1.86,8.31,4.154,8.31c1.029,0,1.975-0.377,2.704-1.004l0.173,0.178v0.506l3.195,3.189l0.952-0.952L7.989,7.031z M4.154,7.031c-1.591,0-2.876-1.285-2.876-2.877c0-1.591,1.285-2.876,2.876-2.876c1.592,0,2.876,1.285,2.876,2.876 C7.031,5.746,5.746,7.031,4.154,7.031z"
+                          ></path>
+                        </svg>
+                      </span>
+                      <input
+                        type="text"
+                        placeholder="Search from dropoff locations and click to select"
+                        id="search_pickup"
+                      />
+                    </div>
+
+                    <!-- Pickup Locations List with Radio Buttons -->
+                    <div class="sc-pt-loc scroller">
+                      <!-- Pickup Item Example with Radio Button -->
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="dropoff-location"
+                          value="koyambedu"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:00</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Koyambedu">Koyambedu</div>
+                          <div>Koyambedu</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="dropoff-location"
+                          value="maduravoyal"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:15</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Maduravoyal">Maduravoyal</div>
+                          <div>Maduravoyal</div>
+                        </div>
+                      </label>
+
+                      <!-- Add more radio button options here -->
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="dropoff-location"
+                          value="velappanchavadi"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:25</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Velappanchavadi Bus Stop">
+                            Velappanchavadi Bus Stop
+                          </div>
+                          <div>Velappanchavadi Bus Stop</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="dropoff-location"
+                          value="poonamallee-bypass"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:40</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Poonamallee Bypass">
+                            Poonamallee Bypass
+                          </div>
+                          <div>Poonamallee Bypass</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="dropoff-location"
+                          value="kfc-poonamalle"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>21:50</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="KFC, Poonamalle">KFC, Poonamalle</div>
+                          <div>KFC, Poonamalle</div>
+                        </div>
+                      </label>
+
+                      <label class="clearfix sc-pt-wrap">
+                        <input
+                          type="radio"
+                          name="dropoff-location"
+                          value="sriperumbudur"
+                        />
+                        <div class="left sc-pt-tm">
+                          <div>22:10</div>
+                          <div>23rd Oct 2024</div>
+                        </div>
+                        <div class="left sc-pt-addr">
+                          <div title="Sriperumbudur">Sriperumbudur</div>
+                          <div>Sriperumbudur</div>
+                        </div>
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Right Section: Button and Info -->
+                  <div class="left sc-pt-txt">
+                    <div class="sc-pt-info scroller">
+                      <button class="ty-btn new-gray dropoff-btn">
+                        TAP ON drop-off POINT
+                      </button>
+                      <div>
+                        Please select a drop-off location<br />to proceed
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="PassengerInfo" class="tabcontent">
+                  <div class="passenger-info-container">
+                    <div class="passenger-info-content">
+                      <!-- Seat Number -->
+                      <div class="seat-number">
+                        <span class="seat-badge">3B</span>
+                        <label class="seat-label">Seat No</label>
+                      </div>
+
+                      <!-- Name Input -->
+                      <div class="input-group">
+                        <label for="name">Name</label>
+                        <input
+                          type="name"
+                          id="name"
+                          placeholder="Enter your name"
+                        />
+                      </div>
+
+                      <!-- Age Input -->
+                      <div class="input-group">
+                        <label for="age">Age</label>
+                        <input
+                          type="number"
+                          id="age"
+                          placeholder="Enter your age"
+                        />
+                      </div>
+
+                      <!-- Gender Selection -->
+                      <div class="input-group gender-group">
+                        <label>Gender</label>
+                        <div class="gender-options">
+                          <input
+                            type="radio"
+                            id="male"
+                            name="gender"
+                            value="Male"
+                          />
+                          <label for="male">Male</label>
+                          <input
+                            type="radio"
+                            id="female"
+                            name="gender"
+                            value="Female"
+                          />
+                          <label for="female">Female</label>
+                        </div>
+                      </div>
+
+                      <div>
+                        <!-- Submit Button -->
+                        <button class="submit-btn">
+                          ENTER NAME, AGE, GENDER
+                        </button>
+
+                        <!-- Selected Seats Info -->
+                        <div class="seat-info">
+                          <p>You have selected 1 seat</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="YourInfo" class="tabcontent">
+                  <div class="your-info-container">
+                    <!-- Input Fields Section -->
+                    <div>
+                      <div class="input-section">
+                        <div class="mobile-number-container">
+                          <div class="country-code">+91</div>
+                          <input
+                            type="text"
+                            placeholder="Mobile Number"
+                            class="mobile-input"
+                          />
+                        </div>
+                        <input
+                          type="email"
+                          placeholder="Email ID"
+                          class="email-input"
+                        />
+                      </div>
+
+                      <!-- Note Section -->
+                      <div class="note-section">
+                        <div class="note-icon">
+                          <span>⚠️</span>
+                        </div>
+                        <div class="note-text">
+                          <p><strong>Take a note</strong></p>
+                          <ul>
+                            <li>
+                              Please provide valid mobile no. and email to be
+                              used for all future communications related to this
+                              booking.
+                            </li>
+                            <li>GST is not applicable for this operator.</li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Bottom Communication Info -->
+                    <div class="communication-info">
+                      <!-- Enter Contact Info Button -->
+                      <div class="enter-contact-info">
+                        <button class="contact-info-btn">
+                          ENTER CONTACT INFO
+                        </button>
+                      </div>
+
+                      <p>
+                        All future communications regarding this trip will be
+                        sent to the email and mobile number entered above.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div id="Policies" class="tabcontent">
+                  <div class="policy-content">
+                    <!-- Radio Buttons for Different Cancellation Policies -->
+                    <div class="policy-options">
+                      <label class="policy-radio">
+                        <input
+                          type="radio"
+                          name="cancellation-policy"
+                          value="cancellation-policy-2"
+                        />
+                        Cancellation Policy
+                      </label>
+                    </div>
+
+                    <!-- Policy Table -->
+                    <div class="policy-table-container">
+                      <table class="policy-table">
+                        <thead>
+                          <tr>
+                            <th>Cancellation Time</th>
+                            <th>Cancellation Charges</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>From 0 to 0 hrs</td>
+                            <td>100%</td>
+                          </tr>
+                          <tr>
+                            <td>From 0 to 8 hrs</td>
+                            <td>100%</td>
+                          </tr>
+                          <tr>
+                            <td>From 8 to 12 hrs</td>
+                            <td>50%</td>
+                          </tr>
+                          <tr>
+                            <td>Before 12 hrs</td>
+                            <td>25%</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <!-- Select Seat Button on the Right -->
+                    <div class="select-seat-container">
+                      <button class="select-seat-btn">SELECT SEATS</button>
+
+                      <!-- Additional Services Section -->
+                      <div class="policy-services">
+                        <h4>Additional Travelyaari Services</h4>
+                        <p>
+                          We make alternate arrangements if bus services are
+                          canceled, or we refund up to double of your paid
+                          amount.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

@@ -5879,7 +5879,7 @@ input[type="number"]::-webkit-outer-spin-button {
 
 /* Pickup Button */
 .ty-btn.new-gray {
-  background-color: #ff5733;
+  background-color: #66bb6a;
   color: white;
   font-weight: bold;
   padding: 10px 20px;
@@ -5933,17 +5933,17 @@ input[type="number"]::-webkit-outer-spin-button {
     margin: 0 auto; /* Center button on mobile */
   }
 }
-/* Hide the default radio button */
+/* Hide the default radio button
 input[type="radio"] {
   appearance: none; /* Remove default styling */
-  -webkit-appearance: none;
+  /* -webkit-appearance: none;
   -moz-appearance: none;
   position: relative;
   margin: 0;
   cursor: pointer;
-}
+} */ 
 
-/* Custom radio button container styling */
+/* Custom radio button container styling
 input[type="radio"]::before {
   content: " ";
   position: absolute;
@@ -5955,13 +5955,13 @@ input[type="radio"]::before {
   border: 2px solid #00aeef;
   border-radius: 50%;
   background-color: white;
-}
+} */
 
-/* Radio button checked state */
+/* Radio button checked state
 input[type="radio"]:checked::before {
   background-color: #00aeef;
   box-shadow: inset 0 0 0 4px white; /* Create a check effect */
-}
+/* } */
 
 
 /* Set default to none for all dropdowns */
@@ -6168,21 +6168,25 @@ input[type="radio"]:checked::before {
 }
 
 .seat.normal {
-  background-color: #66bb6a;
+  color: #66bb6a;
+  border: 1px solid #66bb6a;
+  background-color: white;
 }
 
-.seat.female {
-  background-color: #ff8a80;
-}
-
-.seat.male {
-  background-color: #42a5f5;
-}
 
 .seat.sold {
   background-color: #cfd8dc;
   cursor: not-allowed;
 }
+
+/* Selected seat style */
+.seat.selected {
+  background-color: #66bb6a; /* Custom color for selected seats */
+  color: #fff; /* Text color for better contrast */
+  border: 1px solid #333; /* Optional: add border for more emphasis */
+}
+
+
 
 .legend {
   display: flex;
@@ -6216,31 +6220,66 @@ input[type="radio"]:checked::before {
 
 /* Fare Summary */
 .fare-summary {
-  flex: 2;
   background-color: #fff;
   padding: 20px;
+  border: 1px solid #e0e0e0;
   border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  width: 400px; /* Adjust width to fit the design */
 }
 
-.fare-summary h4 {
+/* Button styling */
+.select-seat-btn {
+  background-color: #66bb6a;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  width: 100%;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 16px;
   margin-bottom: 10px;
+  cursor: pointer;
+}
+
+/* Cashback message styling */
+.fare-summary p {
+  font-size: 14px;
+  color: #888;
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+/* Fare Details section */
+.fare-summary h4 {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 0;
 }
 
 .fare-details p {
-  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  margin: 5px 0;
 }
 
-.select-seat-btn {
-  width: 100%;
-  padding: 12px;
-  background-color: #ff5a00;
-  color: #fff;
-  border: none;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
+#baseFare,
+#finalPrice {
+  font-weight: bold;
 }
+
+
+  /* .select-seat-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff5a00;
+    color: #fff;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  } */
 
 .select-seat-btn:hover {
   background-color: #e64a19;
@@ -6319,7 +6358,7 @@ input[type="radio"]:checked::before {
 }
 
 .contact-info-btn {
-  background-color: #ff7043;
+  background-color: #66bb6a;
   color: white;
   padding: 15px;
   width: 70%;
@@ -6386,7 +6425,7 @@ input[type="radio"]:checked::before {
 
 
 
-/* //passenger info */
+/* Passenger Info Container */
 .passenger-info-container {
   padding: 20px;
 }
@@ -6409,11 +6448,11 @@ input[type="radio"]:checked::before {
 /* Passenger Info Content */
 .passenger-info-content {
   display: flex;
-  flex-direction: row;
+  flex-direction: column; /* Default column layout */
   gap: 20px;
-  justify-content: space-between;
 }
 
+/* Seat Number */
 .seat-number {
   text-align: center;
 }
@@ -6444,7 +6483,8 @@ input[type="radio"]:checked::before {
 .input-group label {
   font-size: 0.9rem;
   color: #555;
-  margin-bottom: 8px;
+  /* margin-bottom: 8px; */
+  margin: 0px auto;
 }
 
 .input-group input {
@@ -6462,15 +6502,18 @@ input[type="radio"]:checked::before {
 .gender-options {
   display: flex;
   gap: 15px;
+  align-items: center; /* Center-aligns items */
+  flex-direction: row; /* Aligns radio buttons horizontally */
 }
 
-.gender-options input {
-  margin-right: 5px;
+.gender-options label {
+  font-size: 0.9rem;
+  color: #555;
 }
 
 /* Submit Button Styles */
 .submit-btn {
-  background-color: #f25a2b;
+  background-color: #66bb6a;
   color: white;
   font-size: 1rem;
   padding: 12px;
@@ -6484,6 +6527,14 @@ input[type="radio"]:checked::before {
 
 .submit-btn:hover {
   background-color: #e14a1a;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .passenger-info-content {
+    flex-direction: row; /* Switch to row layout on larger screens */
+    justify-content: space-between;
+  }
 }
 
 /* Seat Selection Info */
