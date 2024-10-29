@@ -172,16 +172,24 @@ function openTab(evt, tabName) {
 }
 
 
-// Function to reset tabs
-function resetTabs(dropdownContent) {
-    // Remove active class from all tab links
+function resetTabs(dropdownContent, tabName) {
     const tablinks = dropdownContent.querySelectorAll(".tablinks");
-    tablinks.forEach(tab => tab.classList.remove("active"));
-
-    // Hide all tab contents
     const tabcontent = dropdownContent.querySelectorAll(".tabcontent");
+
+    // Remove active class from all tab links and hide all tab content
+    tablinks.forEach(tab => tab.classList.remove("active"));
     tabcontent.forEach(content => content.style.display = "none");
+
+    // Show only the tab that matches `tabName`
+    const selectedTabLink = dropdownContent.querySelector(`.tablinks[data-tab="${tabName}"]`);
+    const selectedTabContent = dropdownContent.querySelector(`#${tabName}`);
+
+    if (selectedTabLink && selectedTabContent) {
+        selectedTabLink.classList.add("active");
+        selectedTabContent.style.display = "block";
+    }
 }
+
 
 // Function to close dropdown manually (on close button)
 // Function to close dropdown manually (on close button)
@@ -434,22 +442,6 @@ function closeDropdown(element) {
     }
 }
 
-// Function to reset tabs within a specific dropdown content
-function resetTabs(dropdownContent) {
-    // Remove active class from all tab links
-    const tablinks = dropdownContent.querySelectorAll(".tablinks");
-    tablinks.forEach(tab => tab.classList.remove("active"));
-
-    // Hide all tab contents
-    const tabcontent = dropdownContent.querySelectorAll(".tabcontent");
-    tabcontent.forEach(content => content.style.display = "none");
-
-    // Set the first tab to be active and visible by default when resetting
-    if (tablinks.length > 0 && tabcontent.length > 0) {
-        tablinks[0].classList.add("active");
-        tabcontent[0].style.display = "block";
-    }
-}
 
 
 
