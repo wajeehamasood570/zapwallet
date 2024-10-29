@@ -5966,7 +5966,7 @@ input[type="radio"]:checked::before {
 
 /* Set default to none for all dropdowns */
 .tabcontent {
-  display: none;
+  /* display: none; */
 }
 
 .dropdown-content.show .tabcontent {

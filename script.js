@@ -202,7 +202,7 @@ function closeDropdown(element) {
             srchCard.classList.remove('expanded'); // Remove 'expanded' class if any
             srchCard.classList.remove('active');   // Remove 'active' class to ensure dropdown hides
         }
-        resetTabs(dropdownContent); // Reset tabs if needed
+        // resetTabs(dropdownContent); // Reset tabs if needed
     }
 }
 
@@ -236,13 +236,7 @@ searchTrigger.addEventListener('click', function () {
     //   body.classList.add('dimmed'); // Add class to dim the background
 });
 
-// Close dropdown when clicking outside of it
-document.addEventListener('click', function (e) {
-    if (!dropdown.contains(e.target) && !searchTrigger.contains(e.target)) {
-        dropdown.style.display = 'none';
-        // body.classList.remove('dimmed'); // Remove dimming effect
-    }
-});
+
 
 
 
@@ -409,38 +403,29 @@ document.querySelectorAll('.srch-card').forEach(card => {
 
 // Function to handle tab switching within a specific card
 function switchTab(card, tabName) {
+    console.log(`Switching to tab: ${tabName} in card`, card);
+
+    // Target only tab content and links within the current card
     const tabContent = card.querySelectorAll(".tabcontent");
     const tabLinks = card.querySelectorAll(".tablinks");
 
-    // Hide all tab content and remove active class
+    // Hide all tab content and remove active class within the card only
     tabContent.forEach(content => content.style.display = "none");
     tabLinks.forEach(link => link.classList.remove("active"));
 
-    // Show the selected tab content
-    card.querySelector(`#${tabName}`).style.display = "block";
-    card.querySelector(`.tablinks[data-tab="${tabName}"]`).classList.add("active");
+    // Show selected tab content and set active class
+    const selectedTab = card.querySelector(`#${tabName}`);
+    const selectedTabLink = card.querySelector(`.tablinks[data-tab="${tabName}"]`);
+
+    if (selectedTab) selectedTab.style.display = "block";
+    if (selectedTabLink) selectedTabLink.classList.add("active");
 }
 
-// Initialize each card individually
-document.querySelectorAll('.srch-card').forEach(card => {
-    initializeCard(card); // Initialize functionality for each card
-});
 
 
 
 
-// Function to close dropdown manually (on close button)
-// Function to close dropdown manually (on close button)
-function closeDropdown(element) {
-    const dropdownContent = element.closest('.dropdown-content');
-    const srchCard = dropdownContent.closest('.srch-card');
-    if (dropdownContent) {
-        dropdownContent.classList.remove('show'); // Hide this specific dropdown
-        srchCard.classList.remove('expanded'); // Remove classes to ensure dropdown hides properly
-        srchCard.classList.remove('active');
-        resetTabs(dropdownContent); // Only reset tabs when explicitly closing
-    }
-}
+
 
 
 
@@ -458,33 +443,7 @@ window.addEventListener('click', function (event) {
     });
 });
 
-// Function to handle opening and closing of dropdowns
-document.querySelectorAll('.search-trigger').forEach(trigger => {
-    trigger.addEventListener('click', function (event) {
-        // Get the closest dropdown within this card
-        const srchCard = event.currentTarget.closest('.srch-card');
-        const dropdown = srchCard.querySelector('.dropdown-content');
 
-        // Toggle visibility of the current dropdown
-        if (dropdown.classList.contains('show')) {
-            dropdown.classList.remove('show');
-            srchCard.classList.remove('expanded');
-        } else {
-            // Close any other open dropdowns
-            document.querySelectorAll('.dropdown-content.show').forEach(openDropdown => {
-                openDropdown.classList.remove('show');
-                openDropdown.closest('.srch-card').classList.remove('expanded');
-            });
-
-            // Now show the dropdown for the clicked card
-            dropdown.classList.add('show');
-            srchCard.classList.add('expanded');
-
-            // Reset tabs for the newly opened dropdown
-            resetTabs(dropdown);
-        }
-    });
-});
 
 
 
@@ -510,8 +469,8 @@ document.querySelectorAll('.search-trigger').forEach(trigger => {
 
         // Toggle visibility of the current dropdown
         if (dropdown.classList.contains('show')) {
-            dropdown.classList.remove('show');
-            srchCard.classList.remove('expanded');
+            // dropdown.classList.remove('show');
+            // srchCard.classList.remove('expanded');
         } else {
             dropdown.classList.add('show');
             srchCard.classList.add('expanded');
@@ -519,3 +478,136 @@ document.querySelectorAll('.search-trigger').forEach(trigger => {
         }
     });
 });
+
+
+
+//
+// Select all cards and loop through them
+document.querySelectorAll('.srch-card').forEach(card => {
+    // Dropdown functionality for each card
+    const dropdownTrigger = card.querySelector('.search-trigger');
+    const dropdownContent = card.querySelector('.dropdown-content');
+
+    dropdownTrigger.addEventListener('click', function (event) {
+        event.stopPropagation(); // Prevent click from affecting other cards
+        dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
+    });
+
+    // Close dropdown if clicked outside
+    window.addEventListener('click', function (event) {
+        if (!card.contains(event.target)) {
+            dropdownContent.style.display = "none";
+        }
+    });
+
+    // Tab functionality for each card
+    card.querySelectorAll('.tablinks').forEach(tab => {
+        tab.addEventListener('click', function (event) {
+            event.preventDefault();
+
+            // Hide all tab content within this card
+            card.querySelectorAll(".tabcontent").forEach(content => content.style.display = "none");
+
+            // Remove 'active' class from all tab links within this card
+            card.querySelectorAll(".tablinks").forEach(link => link.classList.remove("active"));
+
+            // Show the specific tab content and mark the tab as active
+            const tabName = event.currentTarget.getAttribute('data-tab');
+            const selectedTab = card.querySelector(`#${tabName}`);
+            if (selectedTab) {
+                selectedTab.style.display = "block";
+            }
+            event.currentTarget.classList.add("active");
+        });
+    });
+});
+
+
+
+///
+document.addEventListener('DOMContentLoaded', function () {
+    const dropdowns = document.querySelectorAll('.arr-down');
+
+    dropdowns.forEach(arrow => {
+        arrow.addEventListener('click', function (event) {
+            event.stopPropagation();
+            const card = this.closest('.srch-card');
+            const dropdownContent = card.querySelector('.dropdown-content');
+            const isDropdownOpen = dropdownContent.classList.contains('show');
+
+            // Close any open dropdowns
+            closeAllDropdowns();
+
+            if (!isDropdownOpen) {
+                dropdownContent.classList.add('show');
+                card.classList.add('expanded');
+
+                // Open the corresponding tab based on the data-tab attribute
+                const tabName = this.getAttribute('data-tab');
+                openTab(card, tabName);
+
+                // Ensure the dropdown stays within the viewport
+                const dropdownRect = dropdownContent.getBoundingClientRect();
+                if (dropdownRect.top < 0) {
+                    card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }
+        });
+    });
+
+    // Close dropdown when clicking outside
+    window.addEventListener('click', closeAllDropdowns);
+    
+    function closeAllDropdowns() {
+        const dropdownContents = document.querySelectorAll('.dropdown-content.show');
+        dropdownContents.forEach(content => {
+            content.classList.remove('show');
+            content.closest('.srch-card').classList.remove('expanded');
+            resetTabs(content); // Reset tabs when dropdown is closed
+        });
+    }
+
+    // Function to open a specific tab within a card
+    function openTab(card, tabName) {
+        const tabcontent = card.querySelectorAll(".tabcontent");
+        const tablinks = card.querySelectorAll(".tablinks");
+
+        // Hide all tab content and remove 'active' class from all tab links
+        tabcontent.forEach(content => content.style.display = "none");
+        tablinks.forEach(link => link.classList.remove("active"));
+
+        // Show the selected tab content
+        const selectedContent = card.querySelector(`#${tabName}`);
+        const selectedLink = card.querySelector(`.tablinks[data-tab="${tabName}"]`);
+        
+        if (selectedContent && selectedLink) {
+            selectedContent.style.display = "block";
+            selectedLink.classList.add("active");
+        }
+    }
+
+    // Function to reset all tabs within a dropdown
+    function resetTabs(dropdownContent) {
+        const tabcontent = dropdownContent.querySelectorAll(".tabcontent");
+        const tablinks = dropdownContent.querySelectorAll(".tablinks");
+        tabcontent.forEach(content => content.style.display = "none");
+        tablinks.forEach(link => link.classList.remove("active"));
+    }
+});
+
+// Example event handler to toggle individual dropdowns for each card
+function toggleDropdown(event) {
+    event.stopPropagation();
+    const card = event.currentTarget.closest('.srch-card');
+    const dropdownContent = card.querySelector('.dropdown-content');
+    const isDropdownOpen = dropdownContent.classList.contains('show');
+
+    // Close all open dropdowns
+    closeAllDropdowns();
+
+    // Toggle the current dropdown
+    if (!isDropdownOpen) {
+        dropdownContent.classList.add('show');
+        card.classList.add('expanded');
+    }
+}
