@@ -490,7 +490,7 @@ document.querySelectorAll('.srch-card').forEach(card => {
 
     dropdownTrigger.addEventListener('click', function (event) {
         event.stopPropagation(); // Prevent click from affecting other cards
-        dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
+        // dropdownContent.style.display = dropdownContent.style.display === "block" ? "none" : "block";
     });
 
     // Close dropdown if clicked outside
