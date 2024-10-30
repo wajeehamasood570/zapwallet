@@ -823,6 +823,7 @@
   width: 15px;
   fill: #cacccd;
 }
+/* General styles for all screen sizes */
 .header {
   position: fixed;
   top: 0;
@@ -833,23 +834,27 @@
   font-size: 0.85rem;
   z-index: 999;
 }
-header .left > *,
-header .right > * {
+
+header .left > *, header .right > * {
   display: inline-block;
   vertical-align: middle;
   height: 100%;
 }
+
 header > div.left {
   width: 85%;
   width: calc(100% - 201px);
 }
+
 header.check > div.left {
   width: 75%;
   width: calc(100% - 251px);
 }
+
 header > div.left > a {
   width: 185px;
 }
+
 header div.modify {
   position: relative;
   padding: 0;
@@ -860,18 +865,18 @@ header div.modify {
   cursor: pointer;
   padding-right: 35px;
   width: 26%;
-  -webkit-box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
   z-index: 10;
 }
+
 header div.modify .modify-txt {
   padding: 12px 15px;
   width: 100%;
   overflow: hidden;
   white-space: nowrap;
-  -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
 }
+
 header div.modify .mod-srch-icon {
   position: absolute;
   right: 0;
@@ -880,37 +885,124 @@ header div.modify .mod-srch-icon {
   background: #00aeef;
   padding: 10px;
   border-radius: 0 3px 3px 0;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
+
 header div.modify .mod-srch-icon svg {
   width: 15px;
 }
+
 header div.day-link {
   width: 34%;
 }
+
 header div.day-link a {
   color: #00aeef;
 }
+
 header div.day-link span.jurnyDt {
   padding: 0 2.56vw;
 }
+
 header > div.right {
   display: table;
   height: 50px;
   width: 200px;
 }
+
+header > div.right a{
+  display: flex; /* Changed from table to flex for easier centering */
+  align-items: center; /* Vertically centers the content */
+  justify-content: center; /* Centers the link horizontally in its container */
+  height: 50px;
+  width: 200px;
+}
+
 header.check > div.right {
   width: auto;
 }
+
 header > div.right > div {
   position: relative;
   display: table-cell;
   padding-left: 20px;
   cursor: pointer;
 }
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1200px) {
+  header > div.left {
+    width: 70%;
+  }
+
+  header div.modify {
+    width: 30%;
+  }
+
+  header div.day-link {
+    width: 40%;
+  }
+}
+
+@media (max-width: 992px) {
+  header > div.left {
+    width: 65%;
+  }
+
+  header div.modify {
+    width: 35%;
+  }
+
+  header div.day-link {
+    width: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    font-size: 0.8rem;
+  }
+
+  header > div.left {
+    width: 60%;
+  }
+
+  header div.modify {
+    width: 40%;
+  }
+
+  header div.day-link {
+    width: 45%;
+  }
+
+  header > div.right {
+    width: 150px;
+  }
+}
+
+@media (max-width: 576px) {
+  .header {
+    font-size: 0.75rem;
+    padding: 10px;
+  }
+
+  /* Hide the Login/Join and Date Link (day-link) sections on mobile */
+  header div.day-link,
+  header > div.right {
+    display: none;
+  }
+
+  header > div.left {
+    width: 100%;
+    text-align: center;
+  }
+
+  header div.modify {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+
 img {
   vertical-align: middle;
 }
@@ -1308,35 +1400,40 @@ img {
   height: 50px;
   border-radius: 0 0 3px 3px;
 }
-.sort-bar > div {
-  float: left;
+
+
+.sort-bar .row {
+  display: flex;
+  flex-wrap: nowrap;
 }
-.sort-bar > div:first-child {
-  width: 33%;
-  padding-left: 10px;
+
+.sort-bar .col {
+  flex: 1;
+  padding: 5px; /* optional, for spacing */
 }
-.sort-bar > div:nth-child(2) {
-  width: 50%;
+
+/* Hides the "Operator" and "Duration" columns on mobile */
+@media (max-width: 568px) {
+  .sort-bar .col:nth-child(1), /* Hides "Operator" column */
+  .sort-bar .col:nth-child(4) { /* Hides "Duration" column */
+    display: none;
+  }
+
+  .sort-bar .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .sort-bar .col {
+    flex: 1;
+    text-align: center;
+  }
+  .sort-bar{
+    padding: 0!important;
+  }
 }
-.sort-bar > div:last-child {
-  width: 17%;
-  padding-left: 15px;
-}
-.sort-bar.pop > div:first-child {
-  width: 33%;
-  padding-left: 10px;
-}
-.sort-bar.pop > div:nth-child(2) {
-  width: 54%;
-}
-.sort-bar.pop > div:last-child {
-  width: 16%;
-}
-.sort-bar > div:nth-child(2) > div {
-  float: left;
-  width: 33%;
-  width: 33.22259%;
-}
+
+
 .sort-filter-blk {
   position: relative;
   display: inline-block;
@@ -1350,12 +1447,16 @@ img {
   box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.2);
 }
 .sort-blk {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  padding: 0!important;
 }
 .sort-blk .sort-arr {
   background: transparent;
@@ -1367,7 +1468,7 @@ img {
   display: inline-block;
   height: 100%;
   vertical-align: middle;
-  padding: 5px 5px 5px 0;
+  /* padding: 5px 5px 5px 0; */
 }
 .sort-filter-blk .sort-srch {
   width: 75%;
@@ -1541,6 +1642,7 @@ img {
   background: #fff;
   top: 62px;
   right: 6%;
+  padding: 10px auto;
   -webkit-box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.15);
   z-index: 99;
@@ -1794,6 +1896,38 @@ img {
   background: #92b1bb;
   color: #fff;
 }
+
+/* General styles for the filter section */
+.filter-section {
+  position: relative;
+  /* other general styles here */
+}
+
+/* Mobile-specific styles */
+@media (max-width: 468px) {
+  .filter-bar {
+    position: fixed; /* Keep the filter bar fixed at the bottom */
+    top: auto;
+    bottom: 0; /* Position it at the bottom */
+    left: 0; /* Align it to the left */
+    right: 0; /* Align it to the right */
+    background-color: white; /* Background color */
+    z-index: 1000; /* Ensure it's above other content */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Add shadow for visibility */
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    height: auto;
+    width: 100%;
+  }
+  
+  .filterposition{
+    display:flex;
+    flex-direction: row;
+  }
+  
+}
+
 .seatchart .loading {
   height: 100%;
 }
@@ -6542,4 +6676,21 @@ input[type="radio"]:checked::before {
   text-align: center;
   color: #666;
   margin-top: 15px;
+}
+
+
+
+
+/* Hide mobile layout on larger screens */
+@media (min-width: 576px) {
+  .mobile-only {
+    display: none !important;
+  }
+}
+
+/* Hide desktop layout on smaller screens */
+@media (max-width: 575.98px) {
+  .desktop-only {
+    display: none !important;
+  }
 }
