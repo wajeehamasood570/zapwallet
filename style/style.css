@@ -1450,7 +1450,7 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 5px;
   cursor: pointer;
   -webkit-user-select: none;
   -moz-user-select: none;
@@ -1908,7 +1908,7 @@ img {
   .filter-bar {
     position: fixed; /* Keep the filter bar fixed at the bottom */
     top: auto;
-    bottom: 0; /* Position it at the bottom */
+    bottom: 25px; /* Position it at the bottom */
     left: 0; /* Align it to the left */
     right: 0; /* Align it to the right */
     background-color: white; /* Background color */
