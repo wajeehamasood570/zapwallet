@@ -1911,19 +1911,25 @@ img {
     bottom: 25px; /* Position it at the bottom */
     left: 0; /* Align it to the left */
     right: 0; /* Align it to the right */
-    background-color: white; /* Background color */
+    background-color: #66bb6a; /* Background color */
     z-index: 1000; /* Ensure it's above other content */
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1); /* Add shadow for visibility */
     display: flex;
     flex-direction: row;
-    gap: 10px;
+    /* gap: 10px; */
     height: auto;
     width: 100%;
+  }
+  .filter-bar .filter-head{
+    height: auto;
   }
   
   .filterposition{
     display:flex;
     flex-direction: row;
+    background-color: #66bb6a!important;
+    color: #ffffff;
+    gap: 5px;
   }
   .srch-card {
     width: 100%; /* Full screen cover karein */
