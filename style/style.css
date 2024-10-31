@@ -1925,6 +1925,12 @@ img {
     display:flex;
     flex-direction: row;
   }
+  .srch-card {
+    width: 100%; /* Full screen cover karein */
+    margin: 0; /* Side spacing remove karein */
+    padding: 10px; /* Optional: Adjust padding as needed */
+    box-sizing: border-box; /* Border aur padding ko width mein include karein */
+}
   
 }
 
@@ -3032,7 +3038,7 @@ label.glabel.active.err-inp {
 }
 .srch-card .time-pick-blk > div > div {
   white-space: nowrap;
-  overflow: hidden;
+  /* overflow: hidden; */
   -o-text-overflow: ellipsis;
   text-overflow: ellipsis;
 }
@@ -5658,6 +5664,13 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 .next-arr {
   color: #fff;
+}
+
+@media only screen and (max-width: 500px) {
+.container.listing{
+  width: 100%;
+  padding: 10px;
+}
 }
 .dropdown-content {
   display: none; /* Initially hidden */
