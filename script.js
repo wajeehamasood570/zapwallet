@@ -229,12 +229,33 @@ window.addEventListener('click', function (event) {
 const searchTrigger = document.querySelector('.search-trigger');
 const dropdown = document.querySelector('.dropdown-calendar');
 const body = document.querySelector('body');
+const modifyButton = document.querySelector('.dropdown-calendar .btn'); // Make sure we select the button inside the dropdown
 
-// Show dropdown and apply dim effect
-searchTrigger.addEventListener('click', function () {
-    dropdown.style.display = 'block';
-    //   body.classList.add('dimmed'); // Add class to dim the background
+
+// Toggle dropdown visibility on search trigger click
+searchTrigger.addEventListener('click', function (event) {
+    event.stopPropagation(); // Prevent click from propagating to body
+    if (dropdown.style.display === 'none' || dropdown.style.display === '') {
+        dropdown.style.display = 'block';
+        body.classList.add('dimmed'); // Optional: Apply dim effect on the background
+    } else {
+        dropdown.style.display = 'none';
+        body.classList.remove('dimmed'); // Remove dim effect when closed
+    }
 });
+// Close dropdown when MODIFY SEARCH button is clicked
+modifyButton.addEventListener('click', function () {
+    dropdown.style.display = 'none';
+  });
+
+// Close dropdown if clicked outside
+document.addEventListener('click', function (event) {
+    if (!dropdown.contains(event.target) && !searchTrigger.contains(event.target)) {
+        dropdown.style.display = 'none';
+        body.classList.remove('dimmed'); // Remove dim effect when closed
+    }
+});
+
 
 
 
@@ -611,3 +632,7 @@ function toggleDropdown(event) {
         card.classList.add('expanded');
     }
 }
+
+
+
+//search
